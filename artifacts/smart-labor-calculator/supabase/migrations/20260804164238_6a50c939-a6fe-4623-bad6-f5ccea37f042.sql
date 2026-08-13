@@ -1,0 +1,11 @@
+REVOKE EXECUTE ON FUNCTION public.my_admin_permissions() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_has_permission(text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_list_users(text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_set_user_active(uuid, boolean) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_reset_user_roles(uuid) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_set_user_role(uuid, app_role, boolean) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_assign_admin_role(uuid, uuid, boolean) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_role_matrix() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_set_role_permission(uuid, text, boolean) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.must_change_password() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.clear_must_change_password() FROM anon;

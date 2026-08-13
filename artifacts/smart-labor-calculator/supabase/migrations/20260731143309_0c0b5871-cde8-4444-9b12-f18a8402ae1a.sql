@@ -1,0 +1,11 @@
+REVOKE EXECUTE ON FUNCTION public.get_my_referral_code() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.set_my_reward_type(text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.attach_referral_code(text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.check_referral_code(text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.get_my_referral_stats() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.grant_referral_reward(uuid, numeric, text) FROM anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.gen_referral_code() FROM anon, authenticated;
+REVOKE EXECUTE ON FUNCTION public.admin_referral_overview() FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_set_reward_type(uuid, text) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_toggle_referral_code(uuid, boolean) FROM anon;
+REVOKE EXECUTE ON FUNCTION public.admin_mark_reward_paid(uuid, text) FROM anon;

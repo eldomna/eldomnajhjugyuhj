@@ -1,0 +1,2 @@
+- [Smart Labor Calculator quirks](slc-environment.md) — Supabase is live/user-owned; IPv6 bind unsupported; build needs 6GB heap; api-server moved to /_internal-api.
+- [Module removals policy](slc-removals.md) — rule conflicts must fail safely (no auto-resolution); engine versions stay internal, never shown in UI/reports.

@@ -1,0 +1,1 @@
+UPDATE public.platform_settings SET logo_url = '/__l5e/assets-v1/d1646861-c4fd-4c60-b863-b203063482e8/logo.png', updated_at = now() WHERE id = 1 AND (logo_url IS NULL OR logo_url = '');

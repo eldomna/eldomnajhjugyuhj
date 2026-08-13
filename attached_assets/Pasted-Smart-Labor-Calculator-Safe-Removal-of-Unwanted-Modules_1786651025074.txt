@@ -1,0 +1,362 @@
+Smart Labor Calculator — Safe Removal of Unwanted Modules
+
+You are working on the existing Smart Labor Calculator project attached to this conversation.
+
+IMPORTANT
+
+Do NOT rebuild the project from scratch.
+
+Do NOT redesign or rewrite the existing Yemen or Saudi calculation engines.
+
+Do NOT modify working legal calculation formulas unless absolutely required to remove the requested modules.
+
+Your task is strictly to remove the following unwanted functionality/modules from the existing project while preserving everything else that is required for the two calculators.
+
+---
+
+1. Remove Item 7 — Formula Version + Engine Version Requirement
+
+Remove the requirement and implementation that forces every calculation result to expose/store:
+
+- Formula Version
+- Engine Version
+
+However:
+
+- Do NOT remove the actual calculation engine.
+- Do NOT remove legal rules.
+- Do NOT remove calculation results.
+- Do NOT break existing calculation history if it is required by the application.
+- Do NOT remove any version information that is technically required internally for compatibility.
+
+Only remove the unnecessary user-facing/feature-level requirement related specifically to Formula Version + Engine Version.
+
+Before deleting anything, trace all references and dependencies.
+
+---
+
+2. Remove Item 8 — Regression Testing Module
+
+Remove any dedicated regression-testing functionality that exists specifically for legal-rule changes.
+
+This includes user-facing/admin functionality such as:
+
+- Regression Testing pages
+- Regression Test dashboards
+- Regression Test management UI
+- Regression Test execution UI
+- Regression Test reports
+- Regression Test-specific database structures, ONLY if they are exclusively used by this feature
+
+IMPORTANT:
+
+Do NOT remove the actual legal calculation engine.
+
+Do NOT remove the legal rules.
+
+Do NOT remove normal application tests that are required for the calculator to function.
+
+Do NOT delete shared testing infrastructure if other parts of the project depend on it.
+
+First identify dependencies, then remove only the regression-testing feature.
+
+---
+
+3. Remove Item 9 — Legal Rule Conflict Management
+
+Remove the dedicated legal-rule conflict management functionality.
+
+This includes, where applicable:
+
+- Conflict-management UI
+- Conflict-resolution UI
+- Conflict dashboards
+- Conflict-management routes
+- User-facing conflict workflows
+- Admin conflict-management pages
+- Database tables/fields that exist exclusively for this feature
+
+IMPORTANT:
+
+Do NOT remove the legal rules themselves.
+
+Do NOT remove the legal calculation engine.
+
+Do NOT make the calculator return incorrect calculations.
+
+If the existing engine encounters an internal rule conflict after this removal, it must fail safely rather than silently inventing or guessing a legal result.
+
+Do not replace the removed functionality with AI-generated legal decisions.
+
+---
+
+4. Remove Item 10 — Dedicated Edge-Case Testing for Dates and Salaries
+
+Remove any dedicated feature/module that exists specifically for edge-case testing of:
+
+- Dates
+- Salaries
+- Date ranges
+- Salary boundaries
+- Special date calculations
+
+This includes:
+
+- Edge-case testing UI
+- Edge-case test dashboards
+- Edge-case test management
+- Edge-case test reports
+- Dedicated edge-case test database structures
+
+IMPORTANT:
+
+Do NOT remove date calculation logic.
+
+Do NOT remove salary calculation logic.
+
+Do NOT remove normal production validation.
+
+Do NOT break:
+
+- Salary calculations
+- Leave calculations
+- Working-day calculations
+- Termination calculations
+- End-of-service calculations
+- Date calculations
+- Any existing Yemen calculation
+- Any existing Saudi calculation
+
+Only remove the dedicated testing feature.
+
+---
+
+5. Remove Item 23 — Disaster Recovery Plan Module
+
+Remove any application-level Disaster Recovery Plan feature that exists inside the product.
+
+Remove, if present:
+
+- Disaster Recovery dashboard
+- Disaster Recovery pages
+- Disaster Recovery workflows
+- Disaster Recovery UI
+- Disaster Recovery management tools
+- Disaster Recovery-specific database tables
+- Disaster Recovery-specific routes
+- Disaster Recovery-specific components
+
+ONLY remove functionality that is specifically part of the application's Disaster Recovery feature.
+
+IMPORTANT:
+
+Do NOT remove:
+
+- Supabase
+- Authentication
+- Database
+- Backups that are required for normal system operation
+- Security
+- RLS
+- Audit logs
+- Production data protection
+- Existing backup functionality if it is part of normal infrastructure
+
+Do not break the application database or authentication.
+
+---
+
+REQUIRED SAFETY PROCESS
+
+Before deleting anything:
+
+1. Scan the entire repository.
+2. Identify every file, component, route, hook, service, migration, table, RPC/function and configuration related to the five requested items.
+3. Build an internal dependency map.
+4. Determine whether each item is:
+   - exclusively used by the requested feature
+   - shared with the calculators
+   - shared with authentication
+   - shared with subscriptions
+   - shared with payments
+   - shared with admin
+   - shared with legal calculation logic
+5. Delete only code that is exclusively related to the requested functionality.
+6. If a file contains both required and unwanted functionality, modify the file instead of deleting it.
+7. Remove unused imports, routes, components, hooks, services and dependencies created by the removal.
+8. Do not leave broken references.
+9. Do not leave dead navigation links.
+10. Do not leave blank pages or placeholder pages.
+
+---
+
+DO NOT TOUCH THESE CORE FEATURES
+
+The following must remain fully functional:
+
+Public Website
+
+Keep the existing frontend/landing page and its current visual design.
+
+Do not redesign it.
+
+Authentication
+
+Keep:
+
+- Sign up
+- Login
+- Logout
+- Password reset
+- Authentication state
+- User profiles
+
+Calculator Selection
+
+The user must be able to select:
+
+- Yemen Calculator
+- Saudi Calculator
+
+Yemen Calculator
+
+Keep the complete existing Yemen calculation engine and its legal calculation logic.
+
+Saudi Calculator
+
+Keep the complete existing Saudi calculation engine and its legal calculation logic.
+
+Free Calculation
+
+The user must still be able to perform the allowed free calculation before subscription.
+
+Subscriptions
+
+Keep:
+
+- Subscription plans
+- Subscription status
+- Subscription activation
+- Subscription expiration
+- User subscription state
+
+Payments
+
+Keep:
+
+- Payment methods
+- Deposit/payment account information
+- Receipt upload
+- Receipt review
+- Approval
+- Rejection
+- Subscription activation after approval
+
+Notifications
+
+Keep notifications required for:
+
+- Receipt received
+- Payment approved
+- Payment rejected
+- Subscription activated
+- Subscription expiration
+
+Admin
+
+Keep only the administration required to operate:
+
+- Users
+- Yemen subscriptions
+- Saudi subscriptions
+- Payment receipts
+- Payment accounts
+- Subscription plans
+- Prices
+- Calculator settings
+- Basic system settings
+
+Security
+
+Keep:
+
+- Authentication
+- Authorization
+- RLS
+- Secure server-side operations
+- Audit logging required for important financial/account actions
+
+---
+
+IMPORTANT PRODUCT RULE
+
+The final product must remain focused on ONLY:
+
+1. Yemen Labor Calculator
+2. Saudi Labor Calculator
+3. User authentication
+4. Free calculation
+5. Subscription plans
+6. Payment/deposit information
+7. Receipt upload
+8. Receipt approval/rejection
+9. Subscription activation
+10. Basic administration
+
+Do NOT add new services.
+
+Do NOT introduce AI.
+
+Do NOT introduce lawyers.
+
+Do NOT introduce legal knowledge/article services.
+
+Do NOT introduce document search.
+
+Do NOT introduce referral systems.
+
+Do NOT introduce advertisements.
+
+Do NOT introduce unrelated services.
+
+---
+
+FINAL VERIFICATION
+
+After completing the removal:
+
+Run the project's existing build/type-check/lint/test commands.
+
+Verify:
+
+- Landing page works.
+- Registration works.
+- Login works.
+- Calculator selection works.
+- Yemen calculator opens and calculates correctly.
+- Saudi calculator opens and calculates correctly.
+- Free calculation works.
+- Subscription pages work.
+- Payment information displays correctly.
+- Receipt upload works.
+- Admin can review receipts.
+- Admin can approve/reject receipts.
+- Approved subscription becomes active.
+- Notifications still work.
+- No removed route is referenced anywhere.
+- No removed component is imported anywhere.
+- No broken database references remain.
+- No TypeScript/build errors are introduced.
+- No authentication or RLS functionality is broken.
+
+At the end, provide a concise report containing:
+
+1. Files/modules removed.
+2. Database objects removed, if any.
+3. Files modified instead of deleted.
+4. Dependencies removed.
+5. Features intentionally preserved.
+6. Build/type-check/test result.
+7. Any item that could not safely be removed and why.
+
+Do not make unrelated changes.
