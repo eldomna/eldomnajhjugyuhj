@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, Megaphone } from "lucide-react";
 import { useCachedAds, AD_DEFAULT_DISPLAY_SECONDS, type CachedAd } from "@/lib/ads-cache";
 import oskarBanner from "@/assets/oskar-banner.png.asset.json";
 import hashemBanner from "@/assets/hashem-banner.jpg.asset.json";
-import moazBanner from "@/assets/moaz-banner.jpg.asset.json";
+import { moazBannerV2Url } from "@/assets/moaz-banner-v2";
 
 type Ad = CachedAd;
 
@@ -16,7 +16,7 @@ const STATIC_HERO_SLIDES: CachedAd[] = [
     id: "static:moaz-banner",
     title: "أ/ معاذ البناء — تحت إشراف أ.د/ رشاد العامري",
     description: "مترافع أمام المحاكم العليا — استشارات قانونية ومحاماة | واتساب 771061110 — اتصال 775155452",
-    image_url: moazBanner.url,
+    image_url: moazBannerV2Url,
     redirect_url: "https://wa.me/967771061110",
     position: "hero",
     display_seconds: 10,
