@@ -1,12 +1,19 @@
 import { Link } from "@tanstack/react-router";
 import { LifeBuoy } from "lucide-react";
 import oskarLogo from "@/assets/oskar-logo-v2.png.asset.json";
+import { footerSealUrl } from "@/assets/footer-seal";
 import { useI18n } from "@/lib/i18n";
 
 export function FooterAttribution() {
   const { t } = useI18n();
   return (
     <div className="flex flex-col items-center gap-2 text-center">
+      <img
+        src={footerSealUrl}
+        alt="الشعار الرسمي"
+        className="h-16 w-16 object-contain mb-1"
+        loading="lazy"
+      />
       <p className="text-sm text-muted-foreground">{t("footer.builtBy")}</p>
       <div className="flex items-center gap-2 flex-wrap justify-center">
         <img

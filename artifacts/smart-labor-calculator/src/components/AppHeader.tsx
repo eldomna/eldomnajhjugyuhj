@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { useIsAdmin } from "@/lib/useIsAdmin";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo-v2";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { useTheme } from "@/lib/useTheme";
 import { useI18n } from "@/lib/i18n";

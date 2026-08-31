@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { PWAInstallButton } from "@/components/PWAInstallButton";
-import logoAsset from "@/assets/logo.png.asset.json";
+import logoAsset from "@/assets/logo-v2";
 import { AdHero, AdRotator } from "@/components/ads/AdSlots";
 import { useAccess } from "@/lib/useAccess";
 import { FooterAttribution } from "@/components/FooterAttribution";
