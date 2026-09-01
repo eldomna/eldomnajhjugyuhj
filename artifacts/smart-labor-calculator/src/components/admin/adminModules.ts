@@ -19,6 +19,16 @@ import {
   Settings,
   ToggleLeft,
   KeyRound,
+  Activity,
+  TrendingUp,
+  Megaphone,
+  FileSearch,
+  BookOpen,
+  Wallet,
+  Gift,
+  FileCog,
+  MessageSquare,
+  UserCog,
 } from "lucide-react";
 import type { AdminPermission } from "@/lib/admin/permissions";
 
@@ -52,6 +62,22 @@ export const ADMIN_MODULES: AdminModule[] = [
   { to: "/admin/audit", label: "سجل التدقيق", icon: ScrollText, group: "النظام", permission: "audit.view" },
   { to: "/admin/features", label: "مفاتيح الميزات", icon: ToggleLeft, group: "النظام", permission: "features.manage" },
   { to: "/admin/settings", label: "إعدادات النظام", icon: Settings, group: "النظام", permission: "settings.manage" },
+
+  // -- إضافات: صفحات كانت موجودة وشغالة بالكامل لكن ناقصة من القائمة --
+  { to: "/admin/admin-users", label: "إدارة صلاحيات الأدمن", icon: ShieldCheck, group: "العمليات", permission: "roles.manage" },
+  { to: "/admin/lawyers", label: "إدارة المحامين", icon: UserCog, group: "العمليات", permission: "users.manage" },
+  { to: "/admin/reviews", label: "التقييمات", icon: MessageSquare, group: "العمليات", permission: "users.manage" },
+  { to: "/admin/ads", label: "إدارة الإعلانات", icon: Megaphone, group: "العمليات", permission: "settings.manage" },
+  { to: "/admin/analytics", label: "تحليلات المنصة", icon: TrendingUp, group: "نظرة عامة", permission: "reports.view" },
+  { to: "/admin/knowledge", label: "المعرفة القانونية", icon: BookOpen, group: "المحتوى القانوني", permission: "legal.manage" },
+  { to: "/admin/legal-content", label: "نصوص ومحتوى قانوني", icon: FileText, group: "المحتوى القانوني", permission: "legal.manage" },
+  { to: "/admin/legal-references", label: "المراجع القانونية", icon: BookOpen, group: "المحتوى القانوني", permission: "legal.manage" },
+  { to: "/admin/calculation-audit", label: "تدقيق الحسابات", icon: FileSearch, group: "المحتوى القانوني", permission: "audit.view" },
+  { to: "/admin/sa-reports", label: "تقارير السعودية", icon: Archive, group: "المحتوى القانوني", permission: "reports.view" },
+  { to: "/admin/payments", label: "وسائل الدفع", icon: Wallet, group: "المالية", permission: "billing.manage" },
+  { to: "/admin/referrals", label: "نظام الإحالات", icon: Gift, group: "المالية", permission: "billing.manage" },
+  { to: "/admin/system", label: "حالة النظام", icon: Activity, group: "النظام", permission: "settings.manage" },
+  { to: "/admin/report-template", label: "قالب تقرير PDF", icon: FileCog, group: "النظام", permission: "settings.manage" },
 ];
 
 export const ADMIN_GROUPS = ["نظرة عامة", "العمليات", "المحتوى القانوني", "المالية", "النظام"];

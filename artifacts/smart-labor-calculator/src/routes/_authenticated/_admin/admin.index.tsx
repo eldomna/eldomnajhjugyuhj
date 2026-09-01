@@ -4,6 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { AdminShell } from "@/components/admin/AdminShell";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   LayoutDashboard,
   Users,
@@ -17,6 +18,8 @@ import {
   Gauge,
   Archive,
   AlertTriangle,
+  RefreshCw,
+  Activity,
 } from "lucide-react";
 import {
   BarChart,
@@ -44,7 +47,7 @@ function monthKey(iso: string) {
 }
 
 function AdminHome() {
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isFetching, refetch } = useQuery({
     queryKey: ["admin", "home-kpis"],
     queryFn: async () => {
       const since30 = new Date(Date.now() - 30 * 864e5).toISOString();
@@ -198,6 +201,33 @@ function AdminHome() {
       title="لوحة التحكم"
       description="مؤشرات الأداء الرئيسية والرسوم البيانية وآخر العمليات"
       icon={LayoutDashboard}
+      actions={
+        <div className="flex flex-wrap items-center gap-2">
+          <Button size="sm" variant="outline" onClick={() => refetch()} disabled={isFetching} className="gap-1.5">
+            <RefreshCw className={`h-3.5 w-3.5 ${isFetching ? "animate-spin" : ""}`} /> تحديث
+          </Button>
+          <Button asChild size="sm" variant="outline">
+            <Link to="/admin/overview">
+              <Gauge className="h-3.5 w-3.5 ml-1" /> لوحة المؤشرات
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline">
+            <Link to="/admin/cases">
+              <Briefcase className="h-3.5 w-3.5 ml-1" /> القضايا
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline">
+            <Link to="/admin/users">
+              <Users className="h-3.5 w-3.5 ml-1" /> المستخدمون
+            </Link>
+          </Button>
+          <Button asChild size="sm" variant="outline">
+            <Link to="/admin/system">
+              <Activity className="h-3.5 w-3.5 ml-1" /> حالة النظام
+            </Link>
+          </Button>
+        </div>
+      }
     >
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 mb-6">
         {kpis.map((k) => (

@@ -82,7 +82,7 @@ function AdminOverviewPage() {
   return (
     <AdminShell
       title="لوحة المؤشرات"
-      description="مؤشرات الأداء والرسوم البيانية التفاعلية (بيانات تجريبية جاهزة للربط بقاعدة البيانات)"
+      description="مؤشرات الأداء والرسوم البيانية التفاعلية — بيانات حية من قاعدة البيانات"
       icon={Gauge}
       permission="overview.view"
       actions={
