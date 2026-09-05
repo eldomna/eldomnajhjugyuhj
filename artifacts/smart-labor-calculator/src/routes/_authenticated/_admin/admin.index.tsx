@@ -21,30 +21,9 @@ import {
   RefreshCw,
   Activity,
 } from "lucide-react";
-import {
-  BarChart,
-  Bar,
-  PieChart,
-  Pie,
-  Cell,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid,
-} from "recharts";
-
 export const Route = createFileRoute("/_authenticated/_admin/admin/")({
   component: AdminHome,
 });
-
-const COLORS = ["#0ea5e9", "#22c55e", "#f59e0b", "#ef4444", "#8b5cf6", "#14b8a6"];
-
-function monthKey(iso: string) {
-  return iso.slice(0, 7);
-}
 
 function AdminHome() {
   const { data, isLoading, isFetching, refetch } = useQuery({
@@ -237,54 +216,6 @@ function AdminHome() {
             <div className="text-xs text-muted-foreground mt-1">{k.label}</div>
           </Card>
         ))}
-      </div>
-
-      <div className="grid lg:grid-cols-2 gap-4 mb-6">
-        <Card className="p-4">
-          <h3 className="font-bold mb-3 text-sm">عمليات الحساب حسب الشهر</h3>
-          <div className="h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data?.calcByMonth ?? []}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                <XAxis dataKey="month" fontSize={11} />
-                <YAxis fontSize={11} allowDecimals={false} />
-                <Tooltip />
-                <Bar dataKey="value" fill={COLORS[0]} radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </Card>
-
-        <Card className="p-4">
-          <h3 className="font-bold mb-3 text-sm">توزيع حالات القضايا</h3>
-          <div className="h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie data={data?.statusPie ?? []} dataKey="value" nameKey="name" outerRadius={80} label>
-                  {(data?.statusPie ?? []).map((_, i) => (
-                    <Cell key={i} fill={COLORS[i % COLORS.length]} />
-                  ))}
-                </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </Card>
-
-        <Card className="p-4 lg:col-span-2">
-          <h3 className="font-bold mb-3 text-sm">استخدام الذكاء الاصطناعي (30 يوماً)</h3>
-          <div className="h-56">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={data?.aiByDay ?? []}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.2} />
-                <XAxis dataKey="day" fontSize={11} />
-                <YAxis fontSize={11} allowDecimals={false} />
-                <Tooltip />
-                <Line type="monotone" dataKey="value" stroke={COLORS[4]} strokeWidth={2} dot={false} />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </Card>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-4">

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
 import { useIsAdmin } from "@/lib/useIsAdmin";
-import logoAsset from "@/assets/logo-v2";
+import { footerSealUrl as logoAssetUrl } from "@/assets/footer-seal";
 import { NotificationsBell } from "@/components/NotificationsBell";
 import { useTheme } from "@/lib/useTheme";
 import { useI18n } from "@/lib/i18n";
@@ -73,7 +73,7 @@ export function AppHeader() {
       <div className="container mx-auto grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-4 py-2.5 md:flex md:h-16 md:justify-between md:py-0">
         <Link to="/" className="flex min-w-0 items-center gap-2.5 font-display">
           <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-foreground/[0.04] ring-1 ring-accent/30">
-            <img src={logoAsset.url} alt="شعار حاسبة العمال الذكية" className="h-9 w-9 object-contain" />
+            <img src={logoAssetUrl} alt="شعار حاسبة العمال الذكية" className="h-9 w-9 object-contain" />
           </span>
           <div className="min-w-0 leading-tight">
             <div className="truncate text-sm font-extrabold">{t("brand.name")}</div>

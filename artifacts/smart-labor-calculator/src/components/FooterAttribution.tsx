@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { LifeBuoy } from "lucide-react";
 import oskarLogo from "@/assets/oskar-logo-v2.png.asset.json";
-import { footerSealUrl } from "@/assets/footer-seal";
+import logoAsset from "@/assets/logo-v2";
 import { useI18n } from "@/lib/i18n";
 
 export function FooterAttribution() {
@@ -9,7 +9,7 @@ export function FooterAttribution() {
   return (
     <div className="flex flex-col items-center gap-2 text-center">
       <img
-        src={footerSealUrl}
+        src={logoAsset.url}
         alt="الشعار الرسمي"
         className="h-16 w-16 object-contain mb-1"
         loading="lazy"
