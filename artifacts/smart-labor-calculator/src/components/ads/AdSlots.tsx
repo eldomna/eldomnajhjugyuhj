@@ -64,9 +64,10 @@ function trackEvent(ad_id: string, kind: "impression" | "click") {
 
 
 export function AdHero() {
-  // Hero carousel shows ONLY the two curated static banners (Hashem + Oskar).
-  // DB ads are intentionally excluded here per product decision.
-  const ads = useMemo<CachedAd[]>(() => STATIC_HERO_SLIDES, []);
+  // DB-driven hero ads (managed from /admin/ads). Falls back to the curated
+  // static banners only when there are no active hero ads in the database.
+  const dbAds = useCachedAds("hero");
+  const ads = useMemo<CachedAd[]>(() => (dbAds.length > 0 ? dbAds : STATIC_HERO_SLIDES), [dbAds]);
   const seen = useRef<Set<string>>(new Set());
   // Track index can go from 0..ads.length (last is a clone of ads[0])
   const [i, setI] = useState(0);

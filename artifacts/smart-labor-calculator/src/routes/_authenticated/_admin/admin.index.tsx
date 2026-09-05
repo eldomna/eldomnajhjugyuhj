@@ -191,11 +191,6 @@ function AdminHome() {
             </Link>
           </Button>
           <Button asChild size="sm" variant="outline">
-            <Link to="/admin/cases">
-              <Briefcase className="h-3.5 w-3.5 ml-1" /> القضايا
-            </Link>
-          </Button>
-          <Button asChild size="sm" variant="outline">
             <Link to="/admin/users">
               <Users className="h-3.5 w-3.5 ml-1" /> المستخدمون
             </Link>
@@ -218,25 +213,7 @@ function AdminHome() {
         ))}
       </div>
 
-      <div className="grid lg:grid-cols-3 gap-4">
-        <Card className="p-4">
-          <h3 className="font-bold mb-3 text-sm">آخر القضايا</h3>
-          <div className="space-y-2 text-sm">
-            {(data?.casesRecent ?? []).map((c) => (
-              <div key={c.id} className="flex items-center justify-between gap-2 border-b pb-2 last:border-0">
-                <span className="truncate">{c.employee_name || "—"}</span>
-                <Badge variant="outline">{c.status ?? "open"}</Badge>
-              </div>
-            ))}
-            {!isLoading && (data?.casesRecent.length ?? 0) === 0 && (
-              <p className="text-muted-foreground text-xs">لا توجد قضايا بعد</p>
-            )}
-          </div>
-          <Link to="/admin/cases" className="text-xs text-primary mt-3 inline-block">
-            إدارة القضايا
-          </Link>
-        </Card>
-
+      <div className="grid lg:grid-cols-2 gap-4">
         <Card className="p-4">
           <h3 className="font-bold mb-3 text-sm">آخر العمليات</h3>
           <div className="space-y-2 text-xs">

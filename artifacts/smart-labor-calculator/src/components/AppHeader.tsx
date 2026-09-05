@@ -46,15 +46,19 @@ export function AppHeader() {
     <>
       <Link to="/" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.home")}</Link>
       <Link to="/calculator" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.calculator")}</Link>
-      <Link to="/subscribe" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.subscribe")}</Link>
+      {!isAdmin && (
+        <Link to="/subscribe" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.subscribe")}</Link>
+      )}
       {user && (
         <>
-          <Link to="/dashboard" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.dashboard")}</Link>
-          <Link to="/calculations" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.calculations")}</Link>
-          <Link to="/my-subscription" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.mySubscription")}</Link>
-          <Link to="/referrals" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.referrals")}</Link>
-
-
+          {!isAdmin && (
+            <>
+              <Link to="/dashboard" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.dashboard")}</Link>
+              <Link to="/calculations" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.calculations")}</Link>
+              <Link to="/my-subscription" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.mySubscription")}</Link>
+              <Link to="/referrals" className="hover:text-primary transition-colors" onClick={() => setOpen(false)}>{t("nav.referrals")}</Link>
+            </>
+          )}
 
           {isAdmin && (
             <Link to="/admin" className="text-primary font-semibold hover:opacity-80 transition-opacity" onClick={() => setOpen(false)}>{t("nav.admin")}</Link>

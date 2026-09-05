@@ -1,7 +1,6 @@
 import {
   LayoutDashboard,
   Gauge,
-  Briefcase,
   Users,
   ShieldCheck,
   Building2,
@@ -28,7 +27,6 @@ import {
   Gift,
   FileCog,
   MessageSquare,
-  UserCog,
 } from "lucide-react";
 import type { AdminPermission } from "@/lib/admin/permissions";
 
@@ -43,7 +41,6 @@ export type AdminModule = {
 export const ADMIN_MODULES: AdminModule[] = [
   { to: "/admin", label: "الرئيسية", icon: LayoutDashboard, group: "نظرة عامة", permission: "overview.view" },
   { to: "/admin/overview", label: "لوحة المؤشرات", icon: Gauge, group: "نظرة عامة", permission: "overview.view" },
-  { to: "/admin/cases", label: "القضايا", icon: Briefcase, group: "العمليات", permission: "cases.manage" },
   { to: "/admin/users", label: "المستخدمون", icon: Users, group: "العمليات", permission: "users.view" },
   { to: "/admin/roles", label: "الأدوار والصلاحيات", icon: ShieldCheck, group: "العمليات", permission: "roles.manage" },
   { to: "/admin/permissions", label: "مصفوفة الصلاحيات", icon: KeyRound, group: "العمليات", permission: "roles.manage" },
@@ -65,7 +62,6 @@ export const ADMIN_MODULES: AdminModule[] = [
 
   // -- إضافات: صفحات كانت موجودة وشغالة بالكامل لكن ناقصة من القائمة --
   { to: "/admin/admin-users", label: "إدارة صلاحيات الأدمن", icon: ShieldCheck, group: "العمليات", permission: "roles.manage" },
-  { to: "/admin/lawyers", label: "إدارة المحامين", icon: UserCog, group: "العمليات", permission: "users.manage" },
   { to: "/admin/reviews", label: "التقييمات", icon: MessageSquare, group: "العمليات", permission: "users.manage" },
   { to: "/admin/ads", label: "إدارة الإعلانات", icon: Megaphone, group: "العمليات", permission: "settings.manage" },
   { to: "/admin/analytics", label: "تحليلات المنصة", icon: TrendingUp, group: "نظرة عامة", permission: "reports.view" },
