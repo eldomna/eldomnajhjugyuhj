@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { LifeBuoy } from "lucide-react";
-import oskarLogo from "@/assets/oskar-logo-v2.png.asset.json";
 import logoAsset from "@/assets/logo-v2";
 import { useI18n } from "@/lib/i18n";
 
@@ -14,16 +13,6 @@ export function FooterAttribution() {
         className="h-16 w-16 object-contain mb-1"
         loading="lazy"
       />
-      <p className="text-sm text-muted-foreground">{t("footer.builtBy")}</p>
-      <div className="flex items-center gap-2 flex-wrap justify-center">
-        <img
-          src={oskarLogo.url}
-          alt={t("footer.companyLogoAlt")}
-          className="h-8 w-auto object-contain"
-          loading="lazy"
-        />
-        <span className="text-sm font-semibold text-foreground">{t("footer.company")}</span>
-      </div>
       {/* أرقام التواصل تُعرض فقط في صفحة الدعم الفني. */}
       <Link
         to="/support"

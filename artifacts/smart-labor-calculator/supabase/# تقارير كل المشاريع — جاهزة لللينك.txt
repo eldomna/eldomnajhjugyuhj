@@ -1,0 +1,1412 @@
+# تقارير كل المشاريع — جاهزة لللينكدإن
+
+فهرس سريع:
+1. [Marketing CRM](#1-marketing-crm)
+2. [MARF Store](#2-marf-store)
+3. [Capsoola](#3-capsoola)
+4. [Palm Towers (نظام إدارة القضايا القانونية)](#4-palm-towers)
+5. [Khalijah.com](#5-khalijahcom)
+6. [HotSpot Pro](#6-hotspot-pro)
+7. [سوق العرب](#7-سوق-العرب)
+8. [باب رزق](#8-باب-رزق)
+
+---
+---
+
+# 1. Marketing CRM
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 🚀 بفخر بشارككم مشروعي الجديد: **Marketing CRM**
+>
+> نظام إدارة عملاء متكامل (CRM) بُني خصيصًا لفرق التسويق والميديا باينج، بيغطي رحلة العميل بالكامل من أول لحظة يدخل فيها النظام (سواء من فورم أو شات بوت) لحد ما تتقفل معاه الصفقة فعليًا — بـ **4 لوحات تحكم مختلفة**، كل واحدة مصممة خصيصًا لدور معين، ومزودة بـ **Tour Guide تفاعلي** يشرح لأي مستخدم جديد شغلانته خطوة بخطوة من غير ما يحتاج تدريب يدوي.
+>
+> بُني بـ **Next.js 14 + TypeScript + PostgreSQL + Prisma ORM**، ومدعوم بمساعد **ذكاء اصطناعي (Mistral AI)** بيحلل بيانات العملاء ويقترح استراتيجية وميزانية مناسبة لكل عميل تلقائيًا.
+>
+> #WebDevelopment #NextJS #CRM #FullStackDevelopment #AI #TypeScript #SaaS
+
+---
+
+## 🗺️ نظام Tour Guide تفاعلي (ميزة مميزة)
+
+من أبرز حاجات النظام إن **كل لوحة من الأربعة** فيها جولة تعريفية تفاعلية (Onboarding Tour) بتظهر تلقائيًا أول مرة يدخل فيها أي مستخدم جديد، بتاخده خطوة بخطوة على:
+- عناصر الشاشة الأساسية (الإحصائيات، الفلاتر، البطاقات)
+- إيه اللي المفروض يعمله بالظبط في دوره
+- إزاي يستخدم كل زرار ووظيفته
+
+الجولة بتتسجل تلقائيًا (مرة واحدة لكل مستخدم) عشان متتكررش، وده بيقلل وقت التدريب على النظام لصفر تقريبًا لأي موظف جديد ينضم للفريق.
+
+---
+
+## 🖥️ الأربع لوحات تحكم بالتفصيل
+
+### 1️⃣ لوحة الأدمن (Admin Dashboard)
+**تحكم كامل في النظام بالكامل:**
+- إحصائيات لحظية: إجمالي العملاء، الصفقات المغلقة، إجمالي الإيرادات، وصافي الربح
+- عرض آخر 5 عملاء دخلوا النظام مع رابط مباشر لعرض الكل
+- روابط سريعة لكل الأقسام: العملاء، المالية، الرسائل، التقارير، الإعدادات، استيراد Excel
+- إدارة المستخدمين وصلاحياتهم
+- مراجعة سجل محادثات الشات بوت بالكامل (Chatbot Logs)
+
+### 2️⃣ لوحة المودوريتور (Moderator Dashboard)
+**أول نقطة تواصل مع العميل:**
+- فلترة العملاء حسب الحالة: جديد 🟡 ← في مكالمة 🔵 ← تم التواصل 🟢 ← مغلق ⚫
+- بطاقة لكل عميل فيها بياناته (الاسم، الهاتف، المهنة، التخصص، مصدره: فورم أو شات بوت)
+- زرار "هتصل بيه" بينقل العميل تلقائيًا لحالة "في مكالمة" فور الضغط عليه — عشان يمنع تكرار الاتصال بنفس العميل من أكتر من موظف
+- كتابة تقرير مفصل عن كل عميل بعد المكالمة، يظهر بعدين للميديا باير
+
+### 3️⃣ لوحة الميديا باير (Media Buyer Dashboard)
+**مرحلة تقديم العروض وإغلاق الصفقات:**
+- فلترة حسب: تم التواصل ✅ (جاهز لعرض) ← في المفاوضة 🔵 ← مغلق ⚫
+- عرض ملخص تقرير المودوريتور مباشرة في بطاقة العميل قبل ما يفتح الملف الكامل — يوفر وقت المراجعة
+- تنبيه واضح لو عميل وصل بدون ما يتكتب له تقرير من المودوريتور
+- فتح ملف العميل الكامل لمراجعة تحليل الـ AI وتقديم السعر المتفق عليه
+
+### 4️⃣ لوحة اليوزر العادي (End Customer Dashboard)
+**تجربة العميل نفسه داخل النظام:**
+- متابعة حالة طلبه بصريًا بخطوات واضحة: قيد المراجعة ← جاري التواصل ← تم التواصل ← تم التنفيذ
+- استقبال رسائل من فريق العمل مباشرة داخل حسابه
+- **شات بوت ذكي مدمج** يقدر العميل يتكلم معاه في أي وقت لأي استفسار
+
+---
+
+## 🤖 الذكاء الاصطناعي في النظام (تفصيل دقيق)
+
+النظام بيستخدم **Mistral AI** في مكانين مختلفين:
+
+1. **شات بوت العملاء** — بيرد على استفسارات العملاء مباشرة من لوحتهم
+2. **تحليل العميل الذكي (AI Analysis)** — لما الميديا باير يفتح ملف عميل، الـ AI بيحلل بياناته (المهنة، التخصص، ملخص المودوريتور) وبيطلع تلقائيًا:
+   - الخدمة الأنسب للعميل
+   - الميزانية الشهرية المقترحة بالجنيه
+   - تقييم الأولوية (عالية / متوسطة / منخفضة) مع السبب
+
+**نقطة تقنية لافتة:** النظام مبني بـ **fallback ذكي** — لو الـ API الخاص بالـ AI معطل أو مفيش رصيد، النظام بيرجع تلقائيًا لتوصيات مبنية على قواعد جاهزة حسب مهنة العميل (طبيب / مهندس / صيدلي)، فمفيش لحظة يقف فيها النظام عن العمل حتى لو حصل عطل في خدمة الـ AI الخارجية.
+
+---
+
+## الميزات الإضافية
+
+| الميزة | الوصف |
+|--------|-------|
+| 🔐 **نظام أدوار وصلاحيات (RBAC)** | 4 أدوار منفصلة تمامًا (Admin, Moderator, Media Buyer, User) بصلاحيات مختلفة |
+| 💰 **وحدة مالية** | تتبّع الإيرادات وصافي الربح تلقائيًا من الصفقات المغلقة |
+| 💬 **نظام رسائل داخلي متكامل** | الأدمن يقدر يبعت رسالة لكل الفريق دفعة واحدة، أو لدور معين بس (كل المودوريتورز مثلًا)، أو لشخص واحد بعينه — مع تبويب Inbox/Sent منفصل، وعداد للرسائل غير المقروءة، وتحديث لحظي لحالة القراءة |
+| 📝 **نماذج ديناميكية** | الأدمن يضيف أو يعدّل أسئلة استقبال العملاء من غير أي تعديل كود |
+| 🗂️ **كتالوج خدمات** | إدارة كاملة لقائمة الخدمات المعروضة من الداشبورد |
+| 📥 **استيراد من Excel** | رفع بيانات عملاء بالجملة مباشرة من ملف Excel |
+| 📊 **تقارير مزدوجة** | تقارير منفصلة للمودوريتور وللميديا باير لكل مرحلة |
+
+---
+
+## التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|--------|---------|
+| Frontend/Framework | Next.js 14 (App Router) |
+| اللغة | TypeScript |
+| التنسيق | Tailwind CSS |
+| قاعدة البيانات | PostgreSQL |
+| ORM | Prisma |
+| الذكاء الاصطناعي | Mistral AI (مع نظام fallback ذكي) |
+| النشر (Deployment) | VPS (Contabo) + PM2 + Nginx |
+
+---
+
+## حالة المشروع
+✅ منشور فعليًا على سيرفر production، شغال بكامل طاقته بأدوار مستخدمين حقيقية، قاعدة بيانات متكاملة، و4 داشبوردز فعّالة بالكامل.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 🚀 Excited to share my latest project: **Marketing CRM**
+>
+> A full-featured CRM built for marketing & media-buying teams, covering the entire client journey — from first contact to closed deal — across **4 role-specific dashboards** (Admin, Moderator, Media Buyer, End Customer), each with a built-in **interactive onboarding tour** that walks new users through their exact workflow, no manual training needed.
+>
+> Built with **Next.js 14, TypeScript, PostgreSQL, and Prisma ORM**, powered by **Mistral AI** for automated client analysis — the system suggests the ideal service, monthly budget, and priority level for every lead, with a smart rule-based fallback if the AI service is ever unavailable.
+>
+> **Key features:** role-based access control, client lifecycle tracking with call-status automation, dual reporting system, real-time internal messaging, AI-powered chatbot + client analysis, dynamic form builder, Excel bulk import, and a full admin dashboard.
+>
+> #WebDevelopment #NextJS #CRM #TypeScript #AI #FullStackDevelopment
+
+---
+---
+
+# 2. MARF Store
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 🛍️ بفخر بشارككم مشروعي الجديد: **MARF Store**
+>
+> منصة تجارة إلكترونية متكاملة لبراند ستريت وير مصري، من صفحة عرض المنتج لحد الدفع الفعلي وتوصيل الطلب — بنظام إدارة كامل من الخلف (Admin Panel) وتكامل حقيقي مع بوابة الدفع المصرية **Paymob** (فيزا، محافظ إلكترونية، وماكينات فوري/أمان).
+>
+> بُني بـ **Next.js 16 (Turbopack) + TypeScript + PostgreSQL + Prisma ORM**، مع نظام مصادقة (Authentication) مبني من الصفر بـ JWT، ونظام شحن ديناميكي بيغطي **27 محافظة مصرية** كل واحدة بسعرها ومدتها الخاصة.
+>
+> #Ecommerce #WebDevelopment #NextJS #Fintech #Paymob #TypeScript #FullStackDevelopment
+
+---
+
+## 🛒 تجربة العميل (Storefront)
+
+- **عرض منتجات** بفلترة حسب الفئة (Category) مع صور متعددة لكل منتج وصورة أساسية (Primary Image)
+- **صفحة تسجيل / دخول** للعميل بنظام حسابات كامل
+- **صفحة حسابي (Account)** يقدر العميل يشوف منها كل طلباته السابقة وحالتها
+- **تتبّع الطلب** بصفحة مخصصة لكل طلب برقم مرجعي فريد (Order Number) — العميل يقدر يتابع طلبه من غير ما يحتاج يعمل حساب حتى
+- **صفحة دفع مستقلة** لكل طلب (`/payment/[orderNumber]`) مربوطة مباشرة ببوابة Paymob
+- صفحات سياسات جاهزة: **سياسة الاسترجاع** و**الشروط والأحكام**
+- **SEO جاهز من الأساس:** `sitemap.xml` و`robots.txt` تلقائيين
+
+---
+
+## 💳 نظام الدفع (Payment Integration)
+
+تكامل حقيقي وكامل مع **Paymob** (أكبر بوابة دفع إلكتروني في مصر)، بيدعم:
+
+| طريقة الدفع | الوصف |
+|---|---|
+| 💵 **الدفع عند الاستلام (COD)** | الافتراضي لأي عميل ميحبش يدفع أونلاين |
+| 💳 **فيزا/ماستركارد** | دفع مباشر بالكارت عبر Paymob |
+| 📱 **المحافظ الإلكترونية** | فودافون كاش وغيرها |
+| 🏧 **ماكينات فوري وأمان (Kiosk)** | دفع بكود في أقرب فرع |
+
+**تفاصيل تقنية مهمة:**
+- تدفق دفع كامل 3 مراحل (Authentication → Create Order → Payment Key) متبع لمعايير Paymob الرسمية بالكامل
+- **التحقق من صحة كل عملية دفع بتوقيع HMAC-SHA512** — يعني النظام بيتأكد إن الرسالة الراجعة من Paymob نفسه فعليًا ومحدش زوّرها، قبل ما يعتمد أي عملية دفع كـ "ناجحة"
+- Callback endpoint مخصص لتحديث حالة الطلب أوتوماتيك أول ما الدفع يتم
+
+---
+
+## 📦 نظام الشحن (27 محافظة)
+
+نظام شحن ديناميكي بالكامل، كل محافظة مصرية مُدخلة بسعرها الخاص ومدة التوصيل المتوقعة (من القاهرة والجيزة بـ35 جنيه ويوم-يومين، لحد الوادي الجديد وسيناء بأسعار ومدد أطول تناسب بعد المسافة). الأدمن يقدر يعدّل أي سعر أو مدة في أي وقت من لوحة التحكم من غير أي تعديل كود.
+
+---
+
+## 🛠️ لوحة تحكم الأدمن (Admin Panel)
+
+لوحة تحكم شاملة بتغطي كل جوانب المتجر:
+
+| القسم | الوظيفة |
+|---|---|
+| 📊 **Dashboard** | إحصائيات لحظية: إجمالي الطلبات، توزيعها حسب الحالة (قيد الانتظار/مؤكد/تم الشحن/تم التسليم/ملغي)، إجمالي المنتجات النشطة، إجمالي الإيرادات من الطلبات المكتملة، وآخر 10 طلبات |
+| 🛍️ **إدارة المنتجات** | إضافة/تعديل منتجات مع صور متعددة، تحكم في المخزون والتفعيل/التعطيل |
+| 🗂️ **إدارة الفئات** | إضافة وتعديل فئات المنتجات |
+| 📋 **إدارة الطلبات** | مراجعة كل طلب بتفاصيله، تحديث حالته يدويًا |
+| 🚚 **إدارة الشحن** | تحكم كامل في أسعار ومدد التوصيل للـ27 محافظة |
+| 💰 **حسابات الدفع** | إدارة طرق ووسائل استقبال المدفوعات |
+| 📝 **إدارة المحتوى** | تحكم في محتوى الصفحات من غير الحاجة لتعديل كود |
+| ⚙️ **الإعدادات العامة** | إعدادات الموقع العامة (Site Settings) |
+| 📤 **رفع الملفات** | نظام رفع صور مخصص للمنتجات |
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js 16 (App Router + Turbopack) |
+| اللغة | TypeScript |
+| التنسيق | Tailwind CSS + shadcn/ui |
+| قاعدة البيانات | PostgreSQL |
+| ORM | Prisma |
+| المصادقة (Auth) | نظام JWT مخصص (jose) + bcrypt لتشفير كلمات المرور |
+| بوابة الدفع | Paymob (Card / Wallet / Kiosk) مع تحقق HMAC |
+| النشر (Deployment) | VPS (Contabo) + PM2 + Docker-ready (Dockerfile + docker-compose جاهزين) + Nginx/Caddy |
+
+**نقطة تقنية مميزة:** المشروع جاهز للنشر بأكتر من طريقة — عنده `Dockerfile` و`docker-compose.yml` جاهزين للـ containerization، وكمان `Caddyfile` لو حابب تستخدم Caddy بدل Nginx كـ reverse proxy، وده بيدي مرونة في اختيار البنية التحتية حسب الحاجة.
+
+---
+
+## حالة المشروع
+✅ منشور فعليًا على سيرفر production، شغال بكامل طاقته بحسابات أدمن وعملاء حقيقية، قاعدة بيانات متكاملة، ونظام دفع متكامل مربوط بـ Paymob.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 🛍️ Excited to share my latest project: **MARF Store**
+>
+> A complete e-commerce platform for an Egyptian streetwear brand — from product browsing to checkout to delivery — with a full admin backend and real integration with **Paymob**, Egypt's leading payment gateway (Visa/Mastercard, mobile wallets, and Fawry/Aman kiosk payments).
+>
+> Built with **Next.js 16 (Turbopack), TypeScript, PostgreSQL, and Prisma ORM**, featuring a custom JWT authentication system and a dynamic shipping module covering all **27 Egyptian governorates**, each with its own rate and delivery estimate.
+>
+> **Key features:** full storefront with order tracking, HMAC-verified Paymob payment flow (card/wallet/kiosk), admin dashboard with live order & revenue stats, product/category/shipping management, and Docker-ready deployment.
+>
+> #Ecommerce #WebDevelopment #NextJS #Fintech #Paymob #TypeScript #FullStackDevelopment
+
+---
+---
+
+# 3. Capsoola
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 🩺 بفخر بشارككم مشروعي: **Capsoola**
+>
+> منصة طبية عربية متكاملة بتجمع المقالات العلمية، الكورسات التدريبية، والكتب الطبية المتخصصة في مكان واحد — مع **مساعد ذكاء اصطناعي طبي** بيرد على استفسارات الزوار باللغة العربية على مدار الساعة.
+>
+> بُنيت بـ **Next.js + TypeScript**، ومدعومة بذكاء اصطناعي (Gemini)، مع نظام إدارة محتوى كامل من الخلف ونظام دفع ومتجر مدمج.
+>
+> #MedTech #HealthTech #WebDevelopment #NextJS #AI #ArabicContent
+
+---
+
+## 🎯 الفكرة
+
+منصة عربية تخدم المهتمين بالمجال الطبي (طلاب طب، أطباء، مهتمين بالصحة) بثلاث ركائز أساسية: مقالات علمية، كورسات تدريبية، وكتب طبية متخصصة — كل ده متاح للشراء والقراءة مباشرة من المنصة.
+
+---
+
+## 🤖 مساعد ذكي طبي مدمج (Chatbot)
+شات بوت مدعوم بذكاء اصطناعي مدرّب خصيصًا على دور "مساعد طبي" بيقدر:
+- يجاوب على أسئلة طبية عامة بطريقة مبسطة
+- يلخص المقالات الطبية للزائر
+- يساعد المستخدم يوصل للمحتوى المناسب لاحتياجه
+- بيوضح دايمًا للمستخدم ضرورة استشارة طبيب فعلي، ومش بديل عن الاستشارة الطبية
+
+---
+
+## 📚 المحتوى والمكتبة
+
+| القسم | الوصف |
+|---|---|
+| 📰 **مقالات طبية** | مكتبة مقالات علمية بتصنيفات مختلفة |
+| 🎓 **كورسات تدريبية** | كورسات طبية متخصصة للشراء والمتابعة |
+| 📖 **كتب طبية** | متجر كتب طبية إلكترونية، مع صفحة "كتبي" (My Books) للمستخدم يتابع مقتنياته |
+| 🛒 **متجر ومنتجات تسويق بالعمولة (Affiliate)** | قسم منتجات مقترحة مرتبط بنظام عمولة |
+
+---
+
+## 🛠️ لوحة تحكم إدارية شاملة
+
+لوحة أدمن كاملة بتغطي كل جانب في المنصة:
+
+- إدارة المقالات، الكورسات، والكتب
+- إدارة الفئات (Categories) والتعليقات (Comments)
+- إدارة طلبات الشراء (Orders) وطرق الدفع (Payment Methods)
+- إدارة العملات (Currencies) — دعم أكتر من عملة للدفع
+- إدارة روابط التواصل الاجتماعي وبيانات التواصل
+- نظام إشعارات (Notifications) للمستخدمين
+- إدارة نظام التسويق بالعمولة (Affiliate)
+
+---
+
+## 💳 نظام دفع ومتاجر
+النظام فيه صفحات مخصصة لـ:
+- الدفع بعملات مختلفة (`currency-payment`)
+- إدارة الطلبات ومتابعتها من حساب المستخدم
+- بروفايل شخصي لكل مستخدم يتابع منه مشترياته وكتبه
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js (App Router) |
+| اللغة | TypeScript |
+| التنسيق | Tailwind CSS |
+| الذكاء الاصطناعي | Google Gemini (2.0 Flash) |
+| أدوات البناء | v0.app (تصميم وتوليد الواجهات) |
+| الاستضافة | Vercel |
+
+---
+
+## حالة المشروع
+🟡 المشروع في مرحلة تطوير نشطة، مبني بالكامل ومربوط بمنصة v0.app للتحديث المستمر التلقائي، مع خطة نشر على Vercel.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 🩺 Excited to share my project: **Capsoola**
+>
+> A comprehensive Arabic medical platform bringing together scientific articles, training courses, and specialized medical books in one place — powered by an **AI medical assistant** that answers visitor questions in Arabic around the clock.
+>
+> Built with **Next.js and TypeScript**, powered by **Google Gemini AI**, with a full content management admin panel, multi-currency payments, and an integrated affiliate marketing system.
+>
+> **Key features:** AI medical chatbot, articles/courses/books library, admin CMS, order & payment management, multi-currency support, and an affiliate products system.
+>
+> #MedTech #HealthTech #WebDevelopment #NextJS #AI #ArabicContent
+
+---
+---
+
+# 4. Palm Towers
+
+*(نظام إدارة القضايا القانونية)*
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> ⚖️ بفخر بشارككم مشروعي: **Palm Towers**
+>
+> نظام SaaS متكامل للمحامين ومكاتب المحاماة، بيدير كل حاجة من مكان واحد: القضايا، العملاء، الجلسات، المصروفات، المستندات، والأتعاب — مع **مساعد ذكاء اصطناعي** بيولّد تقارير وإحصائيات ذكية عن أداء المكتب.
+>
+> بُني بـ **Next.js 14 + TypeScript + PostgreSQL + Prisma ORM**، بواجهة عربية بالكامل (RTL).
+>
+> #LegalTech #WebDevelopment #NextJS #SaaS #AI #TypeScript
+
+---
+
+## 🎯 الفكرة
+مكاتب المحاماة غالبًا بتدير القضايا بورقة وقلم أو ملفات Excel متفرقة. النظام ده بيجمع كل جوانب إدارة المكتب في لوحة تحكم واحدة، من أول ما القضية تتفتح لحد ما تتقفل وتتحصل الأتعاب.
+
+---
+
+## 🖥️ الميزات الأساسية
+
+### 📁 إدارة القضايا
+CRUD كامل للقضايا مع بحث وفلترة متقدمة — كل قضية مرتبطة بعميلها وجلساتها ومستنداتها.
+
+### 👥 إدارة العملاء
+ملف كامل لكل عميل مع بياناته المالية (المدفوع والمتبقي من الأتعاب).
+
+### 📅 إدارة الجلسات
+عرض الجلسات القادمة بشكل منظم، يساعد المحامي يلحق مواعيده ويستعد لكل جلسة.
+
+### 💰 إدارة المصروفات والأتعاب
+تتبّع مصروفات كل قضية، وتحديث حالة الأتعاب المدفوعة تلقائيًا.
+
+### 📄 إدارة المستندات
+رفع وتنظيم مستندات كل قضية في مكان واحد بدل الملفات المبعثرة.
+
+### 📝 ملاحظات القضايا
+نظام ملاحظات مرتبط بكل قضية للمتابعة اليومية.
+
+### 🤖 مساعد ذكاء اصطناعي (Mistral AI)
+مساعد ذكي مدمج بيولّد تقارير وتحليلات عن أداء المكتب وحالة القضايا.
+
+### 📊 تقارير وإحصائيات
+لوحة إحصائيات شاملة عن عدد القضايا، حالتها، والأداء المالي العام للمكتب.
+
+### 🔐 نظام دخول آمن
+مصادقة بـ JWT مع تشفير كلمات المرور بـ bcrypt، وحماية كل صفحات لوحة التحكم عبر Middleware.
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js 14 (App Router) |
+| اللغة | TypeScript |
+| التنسيق | Tailwind CSS (واجهة عربية RTL بالكامل) |
+| قاعدة البيانات | PostgreSQL |
+| ORM | Prisma |
+| الذكاء الاصطناعي | Mistral AI |
+| المصادقة | JWT (jose) + bcryptjs |
+| النشر | PM2 + خدمة Cron مجدولة للمهام الدورية |
+
+**نقطة تقنية مميزة:** النظام مجهّز كـ PWA (Progressive Web App) — يعني يقدر المحامي يثبّته على موبايله زي أي تطبيق عادي ويستخدمه حتى بدون اتصال إنترنت مستقر.
+
+---
+
+## حالة المشروع
+🟢 مبني بالكامل مع توثيق تقني شامل (API endpoints، هيكل مشروع، خطوات نشر)، وجاهز للنشر production عبر PM2.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> ⚖️ Excited to share my project: **Palm Towers — Legal Case Management System**
+>
+> A complete SaaS platform for lawyers and law firms — managing cases, clients, hearings, expenses, documents, and fees all in one dashboard, powered by an **AI assistant** that generates smart performance reports.
+>
+> Built with **Next.js 14, TypeScript, PostgreSQL, and Prisma ORM**, with a fully Arabic (RTL) interface and PWA support for mobile use.
+>
+> **Key features:** full case & client CRUD, hearing scheduler, expense & fee tracking, document management, AI-powered reporting (Mistral AI), and secure JWT authentication.
+>
+> #LegalTech #WebDevelopment #NextJS #SaaS #AI #TypeScript
+
+---
+---
+
+# 5. Khalijah.com
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 🌸 بفخر بشارككم مشروعي: **Khalijah.com**
+>
+> منصة محتوى عربية متكاملة لصحة وجمال المرأة، بميزة مختلفة تمامًا عن أي موقع محتوى عادي: **المحتوى بيُكتب وبيُنشر لوحده بالكامل** — من اختيار الموضوع الرائج، لكتابة المقال بالذكاء الاصطناعي، لجلب الصور، للنشر على الموقع وفيسبوك وتليجرام — كل ده أوتوماتيك 3 مرات في اليوم من غير أي تدخل بشري.
+>
+> بُنيت بـ **Next.js 14 + Node.js/Express + PostgreSQL**، مع محرك أتمتة بـ **Python** ومساعد ذكاء اصطناعي (Mistral AI) مدمج للزوار.
+>
+> #ContentAutomation #WebDevelopment #AI #NextJS #WomenHealth #ArabicContent
+
+---
+
+## 🤖 نظام الأتمتة الكامل (الميزة الأبرز في المشروع)
+
+نظام Pipeline مؤتمت بالكامل يشتغل 3 مرات يوميًا (8 صباحًا، 2 ظهرًا، 8 مساءً) بيعمل الخطوات دي تلقائيًا من غير تدخل بشري:
+
+1. **اختيار موضوع رائج** يناسب مجال صحة وجمال المرأة
+2. **كتابة المقال بالكامل** بواسطة Mistral AI
+3. **جلب صور مناسبة** تلقائيًا من مكتبة Pexels
+4. **نشر المقال على الموقع** مباشرة عبر الـ API
+5. **نشر تلقائي على صفحة فيسبوك** عبر Graph API
+6. **نشر تلقائي على قناة تليجرام** عبر بوت مخصص
+
+النظام مبني بـ Python منفصل تمامًا عن الموقع، وبيقدر يشتغل بموضوع محدد يدويًا أو تلقائيًا بالجدولة، وحتى بدون نشر سوشيال ميديا لو محتاج مقال للموقع بس.
+
+---
+
+## 🌐 محتوى الموقع للزوار
+
+| القسم | الوصف |
+|---|---|
+| 📰 **مقالات** | مكتبة مقالات محدّثة يوميًا بالمحتوى المؤتمت |
+| 💄 **جمالك** | قسم متخصص في العناية بالجمال |
+| 💇 **شعرك** | قسم متخصص في العناية بالشعر |
+| 🍎 **رشاقتك** | قسم الدايت والتغذية |
+| 🧪 **اختبارات تفاعلية** | زي اختبار "نوع بشرتك" |
+| 🧮 **حاسبات صحية** | أدوات حسابية تفاعلية (زي حاسبة السعرات) |
+| 🛍️ **منتجات** | قسم عرض منتجات |
+| 🤖 **مساعد AI** | شات بوت ذكي يجاوب على استفسارات الزوار |
+| ❤️ **المفضلة** | حفظ المقالات المفضلة لكل مستخدم |
+
+---
+
+## 🛠️ لوحة تحكم إدارية
+نظام تسجيل دخول وحسابات كامل للمستخدمين، مع لوحة أدمن منفصلة لإدارة المحتوى والمستخدمين، ونظام API Key لكل حساب أدمن يسمح للأتمتة تتواصل مع الموقع بأمان.
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend | Next.js 14 + Tailwind CSS |
+| Backend/API | Node.js + Express |
+| قاعدة البيانات | PostgreSQL |
+| محرك الأتمتة | Python |
+| الذكاء الاصطناعي | Mistral AI |
+| مصدر الصور | Pexels API |
+| الإشعارات | Web Push (VAPID) |
+| النشر | Backend على VPS بـ PM2، Frontend على Vercel |
+
+**نقطة تقنية مميزة:** معمارية منفصلة بالكامل (Backend / Frontend / Automation كل واحد مشروع مستقل)، بتسمح إن أي جزء يتطور أو يتغير من غير ما يأثر على الباقي — ومحرك الأتمتة بيشتغل كخدمة مستقلة تمامًا على السيرفر (Cron مجدول + Scheduler بايثون).
+
+---
+
+## حالة المشروع
+✅ منشور فعليًا على `khaleijiah.com` production، مع نظام أتمتة نشر محتوى يشتغل يوميًا بدون تدخل يدوي.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 🌸 Excited to share my project: **Khalijah.com**
+>
+> An Arabic women's health & beauty content platform with a twist: **content writes and publishes itself.** From trending-topic selection to AI article writing, image sourcing, and cross-posting to the website, Facebook, and Telegram — fully automated, running 3 times a day with zero manual intervention.
+>
+> Built with **Next.js 14, Node.js/Express, and PostgreSQL**, with a **Python automation engine** and an integrated **Mistral AI** chatbot for visitors.
+>
+> **Key features:** fully automated content pipeline (AI writing + auto image sourcing + social auto-posting), interactive skin-type quizzes, health calculators, AI chat assistant, and a full admin CMS.
+>
+> #ContentAutomation #WebDevelopment #AI #NextJS #WomenHealth #ArabicContent
+
+---
+---
+
+# 6. HotSpot Pro
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 📶 بفخر بشارككم مشروعي: **HotSpot Pro**
+>
+> نظام SaaS متكامل لإدارة نقاط الواي فاي التجارية (كافيهات، مولات، أماكن عامة)، بيدمج بين تطبيق ويب حديث وبين **OpenWrt + WifiDog** على مستوى الراوتر نفسه — يعني تحكم فعلي في الشبكة مش بس واجهة إدارة.
+>
+> نظام هرمي بـ3 مستويات (Super Admin ← صاحب الكافيه ← الأجهزة)، مع نظام كروت (Vouchers) وصفحة دخول (Captive Portal) للعملاء.
+>
+> بُني بـ **Next.js + PostgreSQL + Prisma**، ومربوط مباشرة بمعدات الشبكة الحقيقية.
+>
+> #NetworkEngineering #WebDevelopment #SaaS #NextJS #IoT #WiFiManagement
+
+---
+
+## 🎯 الفكرة
+أصحاب الكافيهات والأماكن العامة محتاجين يبيعوا "كروت واي فاي" لعملائهم بشكل منظم، ويتحكموا في عدد الأجهزة والوقت المسموح، من غير ما يحتاجوا خبرة تقنية في الشبكات. النظام ده بيوفر الحل ده كامل من الويب إلى الراوتر نفسه.
+
+---
+
+## 🏗️ البنية الهرمية (3 مستويات)
+
+```
+Super Admin (المالك العام للنظام)
+   └── Hotspot Admin (صاحب الكافيه/المكان)
+          └── Device (الراوتر الفعلي)
+                 └── Voucher (كارت الدخول) → Session (الجلسة الفعلية)
+```
+
+كل **Hotspot Admin** ليه حدود مضبوطة من الـ Super Admin: أقصى عدد أجهزة مسموح بيها، وأقصى عدد كروت إجمالي يقدر يصدرها — يعني تحكم كامل في الباقة والاستخدام حسب الاشتراك.
+
+---
+
+## 📡 التكامل الحقيقي مع الشبكة (الميزة الأبرز)
+
+النظام مش مجرد لوحة تحكم — هو مربوط فعليًا بمعدات الشبكة عبر **OpenWrt** (نظام تشغيل الراوترات مفتوح المصدر) و**WifiDog** (نظام Captive Portal مفتوح المصدر):
+
+1. المستخدم يتصل بشبكة الواي فاي
+2. **WifiDog** يحوّله تلقائيًا لصفحة دخول (Captive Portal)
+3. المستخدم يدخل كود الكارت
+4. السيرفر يتحقق ويرجّع Token صالح
+5. **WifiDog** يفتح الإنترنت فعليًا للمستخدم
+6. السيرفر يستقبل Heartbeat كل دقيقة ويحدّث استهلاك الكارت لحظيًا
+7. لما الكارت يخلص، السيرفر يرجّع "غير مصرح"، و**WifiDog يقطع النت تلقائيًا** من غير أي تدخل يدوي
+
+---
+
+## 🛠️ الميزات الإدارية
+
+| الميزة | الوصف |
+|---|---|
+| 🎟️ **توليد كروت (Vouchers)** | إصدار كروت دخول بالجملة لكل نقطة واي فاي |
+| 📊 **إدارة الأجهزة** | تسجيل ومتابعة كل راوتر مرتبط بكل صاحب مكان |
+| 👁️ **متابعة الجلسات (Sessions)** | مراقبة لحظية لكل الأجهزة المتصلة واستهلاكها |
+| 🏪 **صفحة متجر عامة** | عرض باقات الكروت المتاحة للعملاء |
+| 📝 **نظام طلب تركيب** | تقديم طلب تركيب نظام جديد لمكان جديد |
+| 🔐 **صلاحيات هرمية** | فصل كامل بين صلاحيات Super Admin وHotspot Admin |
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js (App Router) |
+| قاعدة البيانات | PostgreSQL |
+| ORM | Prisma |
+| نظام تشغيل الراوتر | OpenWrt |
+| Captive Portal | WifiDog |
+| النشر | VPS + PM2 (وضع Cluster لتحمّل حمل أعلى) |
+
+---
+
+## حالة المشروع
+✅ منشور فعليًا على production وشغال بوضع Cluster على PM2 لتحمّل الحمل، ومربوط بأجهزة راوتر فعلية.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 📶 Excited to share my project: **HotSpot Pro**
+>
+> A complete SaaS platform for managing commercial WiFi hotspots (cafés, malls, public spaces) — combining a modern web app with real network-level control via **OpenWrt + WifiDog** running directly on the router.
+>
+> A 3-tier hierarchy (Super Admin → Hotspot Owner → Devices) with a voucher-based captive portal system for end users.
+>
+> Built with **Next.js, PostgreSQL, and Prisma**, directly integrated with real networking hardware.
+>
+> **Key features:** hierarchical admin roles with usage limits, bulk voucher generation, real-time session monitoring, and full captive-portal integration with automatic access cutoff when a voucher expires.
+>
+> #NetworkEngineering #WebDevelopment #SaaS #NextJS #IoT #WiFiManagement
+
+---
+---
+
+# 7. سوق العرب
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 🛒 بفخر بشارككم مشروعي: **سوق العرب**
+>
+> منصة إعلانات مبوبة عربية متكاملة (زي OLX ودوبيزل)، بتغطي رحلة الإعلان كاملة: من نشر الإعلان، للتصفح والمقارنة، للتواصل المباشر مع البائع، للدفع الإلكتروني للباقات المميزة — كل ده مع نظام موظفين ولوحة إحصائيات إدارية شاملة.
+>
+> بُنيت بـ **Next.js + Supabase (PostgreSQL)**، وشغالة كـ **PWA** كاملة قابلة للتثبيت على الموبايل زي أي تطبيق.
+>
+> #Marketplace #WebDevelopment #NextJS #Supabase #PWA #ArabicTech
+
+---
+
+## 🎯 الفكرة
+منصة إعلانات مبوبة شاملة لكل الفئات (عقارات، سيارات، إلكترونيات، وغيرها)، بتجمع بين تجربة مستخدم حديثة ونظام تسييل حقيقي (باقات مدفوعة + عمولات) ونظام إدارة داخلي كامل بموظفين.
+
+---
+
+## 📢 ميزات المستخدم
+
+| الميزة | الوصف |
+|---|---|
+| 📝 **نشر إعلان** | إضافة إعلانات بسهولة بكل التفاصيل والصور |
+| 🗂️ **تصنيفات وأقسام** | تصفح منظم حسب الفئة |
+| ⭐ **إعلانات مميزة** | قسم مخصص للإعلانات المدفوعة الظاهرة أولًا |
+| ❤️ **المفضلة** | حفظ الإعلانات المهمة للرجوع ليها |
+| ⚖️ **مقارنة** | مقارنة بين أكتر من إعلان جنب بعض |
+| 💬 **رسائل ودردشة مباشرة** | تواصل مباشر بين البائع والمشتري داخل المنصة |
+| 🔔 **إشعارات** | تنبيهات لحظية لأي تفاعل مع الإعلان |
+| 🗺️ **خريطة تفاعلية** | عرض موقع الإعلانات على الخريطة |
+| ⭐ **تقييمات ومراجعات** | نظام تقييم للبائعين |
+| 🔍 **بحث متقدم** | فلترة وبحث دقيق في كل الإعلانات |
+
+---
+
+## 💰 نظام تسييل متكامل
+- **باقات مميزة (Premium Packages)** لترقية ظهور الإعلان
+- **نظام اشتراكات (Subscription)** بخطط مختلفة
+- **نظام عمولة (Commission)** على المعاملات
+- **بوابة دفع إلكتروني** متكاملة داخل المنصة (Checkout)
+
+---
+
+## 👥 نظام إداري وموظفين
+- **لوحة أدمن** شاملة لإدارة كل المنصة
+- **نظام تسجيل دخول منفصل للموظفين** (Employee Login) بصلاحيات مختلفة عن المستخدم العادي
+- **لوحة إحصائيات (Statistics)** لمتابعة أداء المنصة
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js (App Router) |
+| التنسيق | Tailwind CSS |
+| Backend & قاعدة البيانات | Supabase (PostgreSQL + Auth + SSR) |
+| أدوات البناء | v0.app (تصميم وتوليد الواجهات) |
+| النشر | Vercel |
+| PWA | Service Worker + Manifest — قابل للتثبيت على الموبايل بالكامل |
+
+---
+
+## حالة المشروع
+🟢 المشروع مبني بالكامل بكل الصفحات والميزات الأساسية، مع توثيق داخلي مفصّل لخطوات النشر والتحديثات، وجاهز للنشر على Vercel.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 🛒 Excited to share my project: **Souq Al-Arab**
+>
+> A complete Arabic classified-ads marketplace (think OLX/Dubizzle) — covering the full ad lifecycle from posting and browsing to direct in-app messaging and paid premium listings, backed by an internal employee/admin system with full analytics.
+>
+> Built with **Next.js and Supabase (PostgreSQL)**, running as a full **PWA** installable on mobile like a native app.
+>
+> **Key features:** ad posting & categories, featured listings, favorites & comparison, real-time chat, interactive map, reviews, premium subscriptions & commission system, and a separate employee/admin dashboard.
+>
+> #Marketplace #WebDevelopment #NextJS #Supabase #PWA #ArabicTech
+
+---
+---
+
+# 8. باب رزق
+
+## نبذة سريعة (جاهزة للنسخ كـ Post)
+
+> 💼 بفخر بشارككم أكبر مشروع اشتغلت عليه: **باب رزق**
+>
+> منصة عربية متكاملة بتجمع بين عالمين في مكان واحد: **التوظيف التقليدي** و**العمل الحر (فريلانس)** — من نشر الوظائف والتقديم عليها، لمنشئ سيرة ذاتية احترافي، لنظام مشاريع فريلانس كامل بـ**حساب ضامن (Escrow)** يحمي حقوق الطرفين، لمدونة توظيفية، ونظام اشتراكات وإعلانات لتوليد الإيرادات.
+>
+> بُنيت بـ **Next.js + Drizzle ORM**، ومربوطة بمعالج دفع مصري (**Paymob**) لتمويل المعاملات وتفعيل الاشتراكات.
+>
+> #JobPlatform #Freelance #WebDevelopment #NextJS #Fintech #Escrow
+
+---
+
+## 🎯 الفكرة
+معظم منصات التوظيف العربية بتكتفي بعرض وظائف بس. "باب رزق" بيدمج التوظيف التقليدي مع اقتصاد العمل الحر في منصة واحدة، بحماية مالية حقيقية للطرفين عن طريق نظام Escrow، ومصادر دخل متعددة (اشتراكات، عمولة، إعلانات) بتخليه منصة قابلة للاستمرار تجاريًا مش مجرد لوحة إعلانات وظايف.
+
+---
+
+## 💼 نظام التوظيف
+
+- نشر وتصفح وظائف
+- **مدونة متكاملة** بمقالات وتصنيفات وتعليقات لمحتوى مهني يجذب الزوار (SEO)
+- **منشئ سيرة ذاتية (CV Builder)** — يقدر المستخدم يختار قالب، يبني الـ CV كامل، يعاينه، ويطبعه مباشرة من المنصة
+
+---
+
+## 🧑‍💻 نظام الفريلانس (الميزة الأعمق في المشروع)
+
+- **نشر مشاريع** من أصحاب العمل مع تفاصيل كاملة
+- **نظام عروض (Proposals)** يقدر الفريلانسرز يتقدموا بعروضهم على كل مشروع
+- **نظام مراحل (Milestones)** لتقسيم المشروع لدفعات مرحلية بدل دفعة واحدة
+
+### 🔒 نظام الوسيط المالي (Escrow)
+من أهم الميزات في المشروع — نظام حساب ضامن حقيقي:
+1. صاحب المشروع **يموّل** المرحلة (Milestone) مقدمًا
+2. الفلوس بتفضل محجوزة في المنصة لحد ما الشغل يتسلّم
+3. صاحب المشروع **يحرر** المبلغ للفريلانسر بعد الموافقة على التسليم
+4. في حالة خلاف، فيه **نظام نزاعات (Dispute)** رسمي لحل المشكلة
+
+ده بيحل أكبر مشكلة في سوق الفريلانس العربي: **الثقة المالية بين طرفين ملتقيين لأول مرة**.
+
+---
+
+## 💰 مصادر الدخل المدمجة (Business Model جاهز)
+
+| المصدر | الوصف |
+|---|---|
+| 👑 **اشتراكات مميزة** | باقات مدفوعة للشركات وأصحاب المشاريع |
+| 🎓 **اشتراكات كورسات وأدوات** | قسم "عروض" (Deals) لبيع أدوات وكورسات الفريلانسرز |
+| 📢 **إعلانات (Adsterra)** | أماكن إعلانية جاهزة في 5 مواضع استراتيجية بالموقع (بين الوظائف، تفاصيل الوظيفة، أسفل المقالات، نتائج البحث، بانر الرئيسية) |
+| 💳 **بوابة دفع Paymob** | تفعيل الاشتراكات وتمويل الـ Escrow |
+
+---
+
+## 🛠️ لوحة تحكم إدارية شاملة
+- إدارة الباقات واشتراكات الشركات
+- إدارة أماكن ومحتوى الإعلانات
+- إدارة المدونة والعروض
+- CRUD كامل لكل الكيانات (وظائف، مشاريع، مستخدمين)
+
+---
+
+## 🧱 التقنيات المستخدمة (Tech Stack)
+
+| الطبقة | التقنية |
+|---|---|
+| Frontend/Framework | Next.js (App Router) |
+| ORM | Drizzle ORM |
+| بوابة الدفع | Paymob (اشتراكات + Escrow) |
+| الإعلانات | Adsterra |
+| أدوات البناء | v0.app |
+| النشر | Vercel |
+
+**نقطة تقنية مميزة:** المشروع موثّق بخطة تطوير تفصيلية (Features Plan) بتوضح كل الـ 8 ميزات الأساسية بحالتها الفعلية (مكتمل / محتاج تكامل خارجي بس)، مع خارطة طريق واضحة لميزات مستقبلية زي أتمتة سحب ونشر الوظائف بالذكاء الاصطناعي.
+
+---
+
+## حالة المشروع
+🟢 الكود الأساسي لكل الميزات الـ8 مكتمل بالكامل، والمتبقي بس ربط مفاتيح API الخارجية (Paymob وAdsterra) للتفعيل الكامل في production.
+
+---
+
+### نسخة إنجليزية مختصرة
+
+> 💼 Excited to share the biggest project I've built: **Bab Rizk**
+>
+> An Arabic platform that merges two worlds in one place: **traditional job hiring** and the **freelance economy** — job postings, a professional CV builder, a full freelance project system with **escrow-protected payments**, a careers blog, and a built-in monetization engine (subscriptions, ads, and commissions).
+>
+> Built with **Next.js and Drizzle ORM**, integrated with **Paymob** for subscription payments and escrow funding.
+>
+> **Key features:** job listings + CV builder, freelance projects with proposals & milestone-based escrow, dispute resolution, premium subscriptions, ad placements, and a full admin dashboard.
+>
+> #JobPlatform #Freelance #WebDevelopment #NextJS #Fintech #Escrow
+
+
+Search
+
+Home
+My Network
+Jobs
+Messaging
+3
+Notifications
+
+
+Me
+
+For Business
+Try Premium for E£0
+
+
+Ahmed Essam
+
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+
+
+
+Enhance profile
+Add section
+
+Open to
+
+
+Ahmed (eldomna) Essam
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+
+Al Jizah, Egypt
+
+·
+
+Contact info
+
+
+Freelance | Self-Employed
+
+
+Open to
+Add section
+
+Enhance profile
+
+Open to work · Recruiters only
+
+Al Jizah, Egypt | On-site · Hybrid · Remote
+
+Show details
+
+Share that you’re hiring and attract qualified candidates.
+
+Get started
+
+
+Showcase your services as a section on your profile so your business can be easily discovered.
+
+Add services
+
+
+Tell non-profits you are interested in getting involved with your time and skills
+
+Get started
+
+
+
+Suggested for you
+Private to you
+
+Add projects that showcase your skills
+
+Show recruiters how you put your skills to use by adding projects to your profile.
+
+Add a project
+
+Analytics
+Private to you
+
+7 profile views
+
+Discover who’s viewed your profile.
+
+342 post impressions
+
+Check out who’s engaging with your posts.
+
+Past 7 days
+
+2 search appearances
+
+See how often you appear in search results.
+
+Show all
+About
+I’m a Product Engineer focused on building custom software products and business systems from idea to production.
+I work with founders and business owners who have a process, problem, or idea that needs to become a real digital product.
+My work goes beyond writing code. I’m involved in understanding the business, planning the product, designing the user experience, building the system, integrating APIs and AI, automating workflows, deploying the product, and setting up the infrastructure behind it.
+I’ve built and launched:
+• CRM and lead management systems
+• Business management platforms
+• Marketplaces and e-commerce platforms
+• AI-powered applications and assistants
+• Workflow and business automation systems
+• Network and voucher management systems
+• Content and digital product platforms
+My technical experience includes Next.js, Node.js, PostgreSQL, Supabase, Redis, APIs, AI integrations, automation, authentication, role-based access control, and server infrastructure.
+What I enjoy most is taking something that currently depends on spreadsheets, messages, manual work, or disconnected tools and turning it into one system that people can actually use.
+I’m currently open to working with founders, startups, and businesses that want to build a new digital product, automate an existing process, or turn an idea into a production-ready system.
+
+Top skills
+
+Full-Stack Development • Web Development • Product Development • Artificial Intelligence (AI) • Software Architecture
+
+Featured
+
+Post
+
+One of the projects I’ve been working on recently — Suoq Al Arab 🇸🇦
+It’s a marketplace built for the Saudi market, and I wanted the listing experience to be more than just a title, price, and a few photos.
+Sellers can add multiple images and videos to their listings, which is especially useful for things like cars, properties, products, and services.
+I also built location-based features, including interactive maps and city discovery, so listings can be connected to where they actually are.
+Another part I worked on is the media processing system. Uploaded images and videos are processed automatically and get the platform watermark before being displayed.
+These are a few screenshots from the platform 👇
+🔗 https://suqalarab.com/
+#WebDevelopment #Marketplace #SaudiArabia #ProductDevelopment
+
+
+Link
+
+
+Marketing Management System — CRM & Lead Management
+
+http://84.247.167.111:3006
+
+A custom CRM and lead management platform built for a marketing company to manage the customer journey from initial inquiry to deal closure.
+
+The system connects admins, moderators, media buyers, and customers through role-based dashboards, automated workflows, reporting, internal communication, and AI-assisted customer analysis.
+
+I designed and built the platform around the company's actual operational workflow, turning customer data, team responsibilities, communication, and business decisions into one centralized system.
+
+Link
+
+
+Marf — E-commerce Platform
+
+http://84.247.167.111:3005
+
+A custom e-commerce platform built as a product-focused project, combining a customer-facing storefront with the core experience needed to operate an online retail business.
+
+I focused on the complete digital product experience — from product discovery and categories to customer accounts, reviews, and the overall shopping journey.
+
+Beyond development, the project gave me hands-on experience thinking about e-commerce as a business: customer experience, product presentation, conversion, and how the technology supports the operation behind the storefront.
+
+Link
+
+
+Eldomna Hotspot Pro — Wi-Fi Management System
+
+http://84.247.167.111:3004
+
+A custom Wi-Fi management and voucher platform designed to help businesses manage network access, users, and voucher-based connectivity from one centralized system.
+
+I built the system end-to-end, including voucher generation and management, user and device control, network monitoring, QR/NFC access options, dashboards, and operational tools.
+
+The goal was to turn a traditionally manual Wi-Fi management process into a centralized digital system that is easier to operate, monitor, and scale.
+
+Post
+
+Before building software for businesses, I had to run one myself.
+In 2024, I started my first real e-commerce business with 100,000 EGP in starting capital.
+I didn’t treat it as a development project. I actually ran the business end-to-end.
+I handled:
+• Market and product research
+ • Supplier sourcing and negotiation
+ • Pricing and margin analysis
+ • Facebook page management
+ • Paid advertising and product testing
+ • Retail and wholesale sales
+ • Customer acquisition and communication
+ • Order processing and fulfillment
+ • Packaging and shipping coordination
+ • Returns and delivery issues
+ • Operating costs and profitability tracking
+The business focused on home and kitchen products, seasonal products, Ramadan decorations, thermal products, wallpaper, and other easy-to-ship products.
+Some of the numbers:
+100,000 EGP — Starting capital
+ ~23,000 — Facebook page followers
+ ~50,000 EGP — Facebook advertising spend
+ ~35,000 EGP — Net profit after operating costs
+I eventually paused the business because I was managing the complete operation independently.
+But the experience changed how I think about software products.
+When I build a CRM, marketplace, e-commerce platform, or business system, I don’t only think about features and technology.
+I think about the business process behind them.
+How customers are acquired.
+ Where money is spent.
+ Where operations break.
+ What needs to be automated.
+ And what actually affects the bottom line.
+Running the business taught me things that building software alone never could.
+#Ecommerce #Entrepreneurship #DigitalMarketing #ProductDevelopment #BusinessAutomation
+
+
+Activity
+1 followers
+
+Create a post
+
+Posts
+
+Images
+View Ahmed Essam’s profile
+Ahmed Essam
+
+ • You
+
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+
+4d • 
+
+
+A marketing company needed more than a CRM.
+
+They needed one system to manage the entire customer journey — from the first lead to the final deal.
+
+So I built a custom Marketing Management System around the way their team actually works.
+
+Instead of having customer information, calls, reports, team responsibilities, and workflows scattered across different tools, the platform brings everything into one place.
+
+What the system handles:
+
+• Lead intake and customer management
+• Automated lead assignment and status workflows
+• Separate dashboards for Admins, Moderators, Media Buyers, and Customers
+• Customer communication and call reports
+• Customer history and progress tracking
+• Role-Based Access Control
+• Internal team messaging
+• Dynamic forms and service management
+• Revenue and profit tracking
+• Bulk customer import through Excel
+• Operational reporting
+
+I also built an AI-assisted customer analysis system that can evaluate customer information and recommend things like the most suitable service, suggested budget, and customer priority.
+
+And because external AI services aren't always available, I added a rule-based fallback so the workflow can continue working when the AI service is unavailable.
+
+I handled the project end-to-end — from understanding the business workflow and planning the product to UX, development, database architecture, authentication, authorization, AI integration, deployment, and infrastructure.
+
+The interesting part wasn't building another dashboard.
+
+It was turning a company's actual day-to-day operations into one system that connects people, data, workflows, and decisions.
+
+That's the kind of software I enjoy building.
+
+Not just websites.
+Not just features.
+Real systems around real businesses.
+
+#ProductDevelopment #BusinessAutomation #CRM #AI #SoftwareDevelopment #FullStackDevelopment… more
+
+View image
+1/5
+
+1 reaction1
+
+
+Like
+
+Comment
+
+Repost
+Send
+66 impressions
+
+View analyticsView analytics
+
+View Ahmed Essam’s profile
+Ahmed Essam
+
+ • You
+
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+
+6d • 
+
+
+Before building software for businesses, I had to run one myself.
+In 2024, I started my first real e-commerce business with 100,000 EGP in starting capital.
+I didn’t treat it as a development project. I actually ran the business end-to-end.
+I handled:
+• Market and product research
+ • Supplier sourcing and negotiation
+ • Pricing and margin analysis
+ • Facebook page management
+ • Paid advertising and product testing
+ • Retail and wholesale sales
+ • Customer acquisition and communication
+ • Order processing and fulfillment
+ • Packaging and shipping coordination
+ • Returns and delivery issues
+ • Operating costs and profitability tracking
+The business focused on home and kitchen products, seasonal products, Ramadan decorations, thermal products, wallpaper, and other easy-to-ship products.
+Some of the numbers:
+100,000 EGP — Starting capital
+ ~23,000 — Facebook page followers
+ ~50,000 EGP — Facebook advertising spend
+ ~35,000 EGP — Net profit after operating costs
+I eventually paused the business because I was managing the complete operation independently.
+But the experience changed how I think about software products.
+When I build a CRM, marketplace, e-commerce platform, or business system, I don’t only think about features and technology.
+I think about the business process behind them.
+How customers are acquired.
+ Where money is spent.
+ Where operations break.
+ What needs to be automated.
+ And what actually affects the bottom line.
+Running the business taught me things that building software alone never could.
+#Ecommerce #Entrepreneurship #DigitalMarketing #ProductDevelopment #BusinessAutomation… more
+
+
+Like
+
+Comment
+
+Repost
+Send
+210 impressions
+
+View analyticsView analytics
+
+View Ahmed Essam’s profile
+Ahmed Essam
+
+ • You
+
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+
+1w • 
+
+
+One of the projects I’ve been working on recently — Suoq Al Arab 🇸🇦
+It’s a marketplace built for the Saudi market, and I wanted the listing experience to be more than just a title, price, and a few photos.
+Sellers can add multiple images and videos to their listings, which is especially useful for things like cars, properties, products, and services.
+I also built location-based features, including interactive maps and city discovery, so listings can be connected to where they actually are.
+Another part I worked on is the media processing system. Uploaded images and videos are processed automatically and get the platform watermark before being displayed.
+These are a few screenshots from the platform 👇
+🔗 https://suqalarab.com/
+#WebDevelopment #Marketplace #SaudiArabia #ProductDevelopment… more
+
+View image
+1/6
+
+
+Like
+
+Comment
+
+Repost
+Send
+203 impressions
+
+View analyticsView analytics
+
+
+Show all
+Experience
+
+Freelance | Self-Employed logo
+Product Engineer / Full-Stack Developer
+
+Freelance | Self-Employed · Freelance
+
+Dec 2024 - Present · 1 yr 9 mos
+
+Remote
+
+I build custom software products and business systems for founders and businesses, taking projects from initial idea and product planning through development, deployment, and production.
+I work across the full product lifecycle, including:
+• Product and workflow planning
+• UX and interface design
+• Full-stack web development
+• Backend and database architecture
+• Authentication and role-based access control
+• API integrations
+• AI-powered features and automation
+• Deployment and server infrastructure
+• Security and production setup
+Selected work includes CRM and business management systems, marketplaces, e-commerce platforms, AI-powered products, automation systems, and network management solutions.
+I focus on building practical systems that solve real business problems rather than simply delivering standalone websites or interfaces.
+
+ Full-Stack Development, Product Development and +6 skills
+
+Projects (13)
+Marketing Management System — CRM & Lead Management Platform
+
+May 2026 – May 2026
+
+Built a custom CRM and lead management platform for a marketing company to manage the customer journey from initial inquiry to deal closure.
+
+The system connects Admins, Moderators, Media Buyers, and Customers through structured workflows, role-specific dashboards, and controlled access to customer information.
+
+Key capabilities:
+
+• Lead intake and customer management
+• Automated lead assignment and status workflows
+• Moderator dashboards for customer communication and call reports
+• Media Buyer dashboards with customer history and previous reports
+• Customer progress tracking and communication
+• Role-Based Access Control (RBAC)
+• Internal team messaging
+• Dynamic forms managed from the admin dashboard
+• Service catalog management
+• Revenue and profit tracking
+• Excel bulk customer import
+• Workflow and operational reporting
+• Interactive onboarding experiences for different user roles
+
+I also implemented an AI-assisted customer analysis system that evaluates customer information and generates recommendations such as the most suitable service, suggested budget, and customer priority.
+
+A rule-based fallback system keeps the recommendation workflow functional when the external AI service is unavailable.
+
+I worked across the product lifecycle, including business workflow design, UX, frontend and backend development, database architecture, authentication, authorization, AI integration, deployment, and infrastructure.
+
+The result is a centralized operational platform connecting customer data, communication, team responsibilities, workflows, reporting, and business decisions in one system.
+… more
+
+ Role-Based Access Control (RBAC), Customer Relationship Management (CRM) and +3 skills
+
+Thumbnail for Marketing Pro — وكالة التسويق الرقمي
+Thumbnail for admin dashboard
+Thumbnail for home
+Palm Towers — Law Firm Case Management System
+
+Apr 2026 – Apr 2026
+
+Built a case management platform for a law firm to centralize legal cases, documents, schedules, and operational information.
+
+The system provides different access levels for administrators and lawyers, allowing each user to access the information and functionality relevant to their role.
+
+Key capabilities:
+
+• Legal case registration and management
+• Structured case information and records
+• Document and attachment management
+• Support for multiple file formats
+• Role-Based Access Control (RBAC)
+• Notifications and hearing reminders
+• Session and important-event reminders
+• AI-powered chatbot for interacting with system information
+• Progressive Web App (PWA) implementation
+
+The AI assistant allows users to ask questions about the platform and retrieve relevant information from the system's data, making case-related information easier to access.
+
+I designed and built the application architecture, backend and database systems, access-control model, document management, notifications, AI integration, PWA experience, deployment, and technical infrastructure.
+
+The result is a centralized digital workspace for managing legal cases, documents, schedules, and day-to-day law-firm operations.
+… more
+
+ Role-Based Access Control (RBAC), AI Integration and +4 skills
+
+Thumbnail for نظام إدارة القضايا القانونية
+نظام إدارة القضايا القانونية
+
+Show all
+Skills (40)
+Software Development
+
+Automated SMS Payment Verification — Payment & Order Automation
+
+E-commerce Automation
+
+Automated SMS Payment Verification — Payment & Order Automation
+
+Show all
+Interests
+
+A marketing company needed more than a CRM.
+
+They needed one system to manage the entire customer journey — from the first lead to the final deal.
+
+So I built a custom Marketing Management System around the way their team actually works.
+
+Instead of having customer information, calls, reports, team responsibilities, and workflows scattered across different tools, the platform brings everything into one place.
+
+What the system handles:
+
+• Lead intake and customer management
+• Automated lead assignment and status workflows
+• Separate dashboards for Admins, Moderators, Media Buyers, and Customers
+• Customer communication and call reports
+• Customer history and progress tracking
+• Role-Based Access Control
+• Internal team messaging
+• Dynamic forms and service management
+• Revenue and profit tracking
+• Bulk customer import through Excel
+• Operational reporting
+
+I also built an AI-assisted customer analysis system that can evaluate customer information and recommend things like the most suitable service, suggested budget, and customer priority.
+
+And because external AI services aren't always available, I added a rule-based fallback so the workflow can continue working when the AI service is unavailable.
+
+I handled the project end-to-end — from understanding the business workflow and planning the product to UX, development, database architecture, authentication, authorization, AI integration, deployment, and infrastructure.
+
+The interesting part wasn't building another dashboard.
+
+It was turning a company's actual day-to-day operations into one system that connects people, data, workflows, and decisions.
+
+That's the kind of software I enjoy building.
+
+Not just websites.
+Not just features.
+Real systems around real businesses.
+
+#ProductDevelopment #BusinessAutomation #CRM #AI #SoftwareDevelopment #FullStackDevelopment
+
+View image
+View image
+View image
+View image
++1
+
+1 reaction1
+
+
+Like
+
+
+Comment
+
+Repost
+Send
+67 impressions
+
+View analyticsView analytics
+
+
+
+
+
+
+Before building software for businesses, I had to run one myself.
+In 2024, I started my first real e-commerce business with 100,000 EGP in starting capital.
+I didn’t treat it as a development project. I actually ran the business end-to-end.
+I handled:
+• Market and product research
+ • Supplier sourcing and negotiation
+ • Pricing and margin analysis
+ • Facebook page management
+ • Paid advertising and product testing
+ • Retail and wholesale sales
+ • Customer acquisition and communication
+ • Order processing and fulfillment
+ • Packaging and shipping coordination
+ • Returns and delivery issues
+ • Operating costs and profitability tracking
+The business focused on home and kitchen products, seasonal products, Ramadan decorations, thermal products, wallpaper, and other easy-to-ship products.
+Some of the numbers:
+100,000 EGP — Starting capital
+ ~23,000 — Facebook page followers
+ ~50,000 EGP — Facebook advertising spend
+ ~35,000 EGP — Net profit after operating costs
+I eventually paused the business because I was managing the complete operation independently.
+But the experience changed how I think about software products.
+When I build a CRM, marketplace, e-commerce platform, or business system, I don’t only think about features and technology.
+I think about the business process behind them.
+How customers are acquired.
+ Where money is spent.
+ Where operations break.
+ What needs to be automated.
+ And what actually affects the bottom line.
+Running the business taught me things that building software alone never could.
+hashtag#Ecommerce hashtag#Entrepreneurship hashtag#DigitalMarketing hashtag#ProductDevelopment hashtag#BusinessAutomation
+
+Like
+
+Comment
+
+Repost
+
+Send
+212 impressions
+View analytics
+Ahmed Essam
+View Ahmed Essam’s  graphic link
+Ahmed Essam
+ • You
+Product Engineer | Full-Stack Development, AI & Business Automation | I Build Custom Systems from Idea to Production
+1w •  
+
+One of the projects I’ve been working on recently — Suoq Al Arab 🇸🇦
+It’s a marketplace built for the Saudi market, and I wanted the listing experience to be more than just a title, price, and a few photos.
+Sellers can add multiple images and videos to their listings, which is especially useful for things like cars, properties, products, and services.
+I also built location-based features, including interactive maps and city discovery, so listings can be connected to where they actually are.
+Another part I worked on is the media processing system. Uploaded images and videos are processed automatically and get the platform watermark before being displayed.
+These are a few screenshots from the platform 👇
+🔗 https://suqalarab.com/
+hashtag#WebDevelopment hashtag#Marketplace hashtag#SaudiArabia hashtag#ProductDevelopment
+
+View image
+
+View image
+
+View image
+
+View image
++2
+Activate to view larger image,
+
+Like
+
+Comment
+
+Repost
+
+Send
+203 impressions
+View analytics
+Ahmed Essam
+
+
+Add a comment…
+Open Emoji Keyboard
+

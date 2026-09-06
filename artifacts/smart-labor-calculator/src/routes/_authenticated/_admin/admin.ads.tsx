@@ -105,7 +105,8 @@ function AdminAds() {
     if (file.size > 5 * 1024 * 1024) return toast.error("الحد الأقصى 5MB");
     setUploading(true);
     const ext = file.name.split(".").pop() || "jpg";
-    const path = `${Date.now()}-${crypto.randomUUID().slice(0, 8)}.${ext}`;
+    const rand = Math.random().toString(36).slice(2, 10);
+    const path = `${Date.now()}-${rand}.${ext}`;
     const up = await supabase.storage.from("ad-banners").upload(path, file, { upsert: false, contentType: file.type });
     if (up.error) { setUploading(false); return toast.error(up.error.message); }
     // Replacing an existing upload? remove the previous object.
