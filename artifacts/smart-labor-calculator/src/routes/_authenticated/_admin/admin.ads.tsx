@@ -11,8 +11,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Megaphone, Plus, Pencil, Trash2, Eye, MousePointerClick, Upload, Power } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Megaphone, Plus, Pencil, Trash2, Eye, MousePointerClick, Upload, Power, FileText, Image as ImageIcon, Link2, Settings2, CalendarClock, ArrowRight, Images, CheckCircle2 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { useEffect, useRef, useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from "recharts";
 
 import { toast } from "sonner";
@@ -28,6 +29,14 @@ type AdForm = {
   starts_at: string; ends_at: string; is_active: boolean;
 };
 const empty: AdForm = { title: "", description: "", image_url: "", redirect_url: "", governorate: "", position: "hero", sort_order: 0, display_seconds: 10, starts_at: "", ends_at: "", is_active: true };
+
+const FORM_SECTIONS = [
+  { key: "basic", label: "البيانات الأساسية", icon: FileText },
+  { key: "image", label: "الصورة", icon: ImageIcon },
+  { key: "link", label: "رابط النقر", icon: Link2 },
+  { key: "settings", label: "الإعدادات", icon: Settings2 },
+  { key: "dates", label: "الجدولة", icon: CalendarClock },
+] as const;
 
 function AdminAds() {
   const qc = useQueryClient();
@@ -63,6 +72,12 @@ function AdminAds() {
 
 
   const [editing, setEditing] = useState<AdForm | null>(null);
+  const [activeSection, setActiveSection] = useState<string>(FORM_SECTIONS[0].key);
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({});
+  const scrollToSection = (key: string) => {
+    setActiveSection(key);
+    sectionRefs.current[key]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
 
   const save = useMutation({
     mutationFn: async (f: AdForm) => {
@@ -99,24 +114,44 @@ function AdminAds() {
   });
 
   const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
+  const [localPreview, setLocalPreview] = useState<string>("");
+  const progressTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   async function uploadImage(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];
     e.target.value = "";
     if (!file || !editing) return;
     if (file.size > 5 * 1024 * 1024) return toast.error("الحد الأقصى 5MB");
+    // معاينة فورية من الجهاز قبل انتهاء الرفع.
+    const objectUrl = URL.createObjectURL(file);
+    setLocalPreview(objectUrl);
     setUploading(true);
+    setUploadProgress(8);
+    // Supabase's fetch-based upload doesn't expose real progress events,
+    // so we simulate a smooth indicator up to 90% while the request is in flight.
+    progressTimer.current = setInterval(() => {
+      setUploadProgress((p) => (p < 90 ? p + Math.max(1, (90 - p) / 12) : p));
+    }, 150);
     const ext = file.name.split(".").pop() || "jpg";
     const rand = Math.random().toString(36).slice(2, 10);
     const path = `${Date.now()}-${rand}.${ext}`;
     const up = await supabase.storage.from("ad-banners").upload(path, file, { upsert: false, contentType: file.type });
-    if (up.error) { setUploading(false); return toast.error(up.error.message); }
+    if (progressTimer.current) clearInterval(progressTimer.current);
+    if (up.error) {
+      setUploading(false); setUploadProgress(0); URL.revokeObjectURL(objectUrl); setLocalPreview("");
+      return toast.error(up.error.message);
+    }
+    setUploadProgress(100);
     // Replacing an existing upload? remove the previous object.
     const prev = storagePathOf(editing.image_url);
     if (prev) supabase.storage.from("ad-banners").remove([prev]).then(() => {});
     // Bucket is private; store a stable path marker. The homepage slider
     // resolves it to a short-lived signed URL on render.
     setEditing({ ...editing, image_url: `ad-banners/${path}` });
-    setUploading(false);
+    setTimeout(() => {
+      setUploading(false); setUploadProgress(0);
+      URL.revokeObjectURL(objectUrl); setLocalPreview("");
+    }, 400);
     toast.success("تم رفع الصورة");
   }
 
@@ -126,13 +161,20 @@ function AdminAds() {
     <div className="min-h-screen flex flex-col">
       <AppHeader />
       <main className="flex-1 container mx-auto px-4 py-8">
+        <Link to="/admin" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-4">
+          <ArrowRight className="h-4 w-4 rtl:rotate-180" /> العودة إلى لوحة التحكم
+        </Link>
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2"><Megaphone className="h-6 w-6 text-primary" /><h1 className="text-2xl font-bold">إدارة الإعلانات</h1></div>
           <Button onClick={() => setEditing(empty)} className="gap-1"><Plus className="h-4 w-4" /> إعلان جديد</Button>
         </div>
 
 
-        <div className="grid sm:grid-cols-3 gap-3 mb-6">
+        <div className="grid sm:grid-cols-4 gap-3 mb-6">
+          <Card className="p-4">
+            <div className="text-xs text-muted-foreground">عدد الصور المرفوعة</div>
+            <div className="text-2xl font-bold flex items-center gap-2 mt-1"><Images className="h-5 w-5 text-primary" />{(ads || []).filter((a: any) => !!a.image_url).length}</div>
+          </Card>
           <Card className="p-4">
             <div className="text-xs text-muted-foreground">المشاهدات (٧ أيام)</div>
             <div className="text-2xl font-bold flex items-center gap-2 mt-1"><Eye className="h-5 w-5 text-primary" />{stats?.totals.impression ?? 0}</div>
@@ -195,24 +237,64 @@ function AdminAds() {
       </main>
 
       <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
-        <DialogContent className="max-w-xl h-[85vh] p-0 gap-0 flex flex-col overflow-hidden">
+        <DialogContent className="max-w-3xl h-[85vh] p-0 gap-0 flex flex-col overflow-hidden">
           <DialogHeader className="p-4 pb-2 shrink-0 border-b"><DialogTitle>{editing?.id ? "تعديل" : "إضافة"} إعلان</DialogTitle></DialogHeader>
           {editing && (
-          <ScrollArea className="flex-1 min-h-0">
-            <div className="space-y-3 p-4">
+          <div className="flex-1 min-h-0 flex overflow-hidden">
+            <nav className="hidden sm:flex w-40 shrink-0 flex-col gap-1 p-2 border-e bg-muted/30 overflow-y-auto">
+              {FORM_SECTIONS.map((s) => {
+                const Icon = s.icon;
+                const active = activeSection === s.key;
+                return (
+                  <button
+                    key={s.key}
+                    type="button"
+                    onClick={() => scrollToSection(s.key)}
+                    className={`flex items-center gap-2 text-xs px-2.5 py-2 rounded-md text-start transition-colors ${active ? "bg-primary text-primary-foreground" : "hover:bg-muted text-muted-foreground"}`}
+                  >
+                    <Icon className="h-3.5 w-3.5 shrink-0" />
+                    <span className="truncate">{s.label}</span>
+                  </button>
+                );
+              })}
+            </nav>
+            <ScrollArea className="flex-1 min-w-0">
+            <div className="space-y-5 p-4">
+              <div ref={(el) => { sectionRefs.current.basic = el; }} className="space-y-3 scroll-mt-2">
               <F label="العنوان *"><Input value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} /></F>
               <F label="الوصف"><Textarea rows={2} value={editing.description} onChange={(e) => setEditing({ ...editing, description: e.target.value })} /></F>
+              </div>
+              <div ref={(el) => { sectionRefs.current.image = el; }} className="scroll-mt-2">
               <F label="صورة الإعلان *">
                 <div className="flex gap-2 items-start">
                   <Input value={editing.image_url} onChange={(e) => setEditing({ ...editing, image_url: e.target.value })} dir="ltr" className="text-xs" placeholder="ارفع صورة أو ألصق رابطاً" />
                   <label className={`inline-flex items-center gap-1 px-3 h-9 rounded-md text-xs font-medium border bg-primary text-primary-foreground cursor-pointer shrink-0 ${uploading ? "opacity-50 pointer-events-none" : ""}`}>
-                    <Upload className="h-3.5 w-3.5" />{uploading ? "جارٍ..." : "رفع"}
+                    <Upload className="h-3.5 w-3.5" />{uploading ? "جارٍ الرفع..." : "رفع"}
                     <input type="file" hidden accept="image/*" onChange={uploadImage} disabled={uploading} />
                   </label>
                 </div>
-                {editing.image_url && (
+
+                {/* معاينة فورية + شريط تقدم أثناء الرفع */}
+                {uploading && (
+                  <div className="mt-2 space-y-1.5">
+                    <div className="relative">
+                      <img src={localPreview} alt="معاينة" className="w-full h-28 object-cover rounded border opacity-90" />
+                      <div className="absolute inset-0 grid place-items-center bg-black/30 rounded">
+                        <span className="text-white text-xs font-semibold bg-black/40 px-2 py-1 rounded">{Math.round(uploadProgress)}%</span>
+                      </div>
+                    </div>
+                    <div className="h-1.5 w-full bg-muted rounded-full overflow-hidden">
+                      <div className="h-full bg-primary transition-all duration-150" style={{ width: `${uploadProgress}%` }} />
+                    </div>
+                  </div>
+                )}
+
+                {!uploading && editing.image_url && (
                   <div className="relative mt-2">
                     <AdImg raw={editing.image_url} className="w-full h-28 object-cover rounded border" />
+                    <span className="absolute bottom-1.5 right-1.5 inline-flex items-center gap-1 bg-black/50 text-white text-[10px] px-1.5 py-0.5 rounded">
+                      <CheckCircle2 className="h-3 w-3" /> معاينة
+                    </span>
                     <Button
                       type="button"
                       size="icon"
@@ -231,8 +313,11 @@ function AdminAds() {
                   </div>
                 )}
               </F>
+              </div>
+              <div ref={(el) => { sectionRefs.current.link = el; }} className="scroll-mt-2">
               <F label="رابط النقر"><Input value={editing.redirect_url} onChange={(e) => setEditing({ ...editing, redirect_url: e.target.value })} dir="ltr" className="text-xs" /></F>
-              <div className="grid sm:grid-cols-2 gap-3">
+              </div>
+              <div ref={(el) => { sectionRefs.current.settings = el; }} className="grid sm:grid-cols-2 gap-3 scroll-mt-2">
                 <F label="الموضع">
                   <Select value={editing.position} onValueChange={(v: any) => setEditing({ ...editing, position: v })}>
                     <SelectTrigger><SelectValue /></SelectTrigger>
@@ -253,11 +338,14 @@ function AdminAds() {
                     <SelectContent><SelectItem value="1">نعم</SelectItem><SelectItem value="0">لا</SelectItem></SelectContent>
                   </Select>
                 </F>
+              </div>
+              <div ref={(el) => { sectionRefs.current.dates = el; }} className="grid sm:grid-cols-2 gap-3 scroll-mt-2">
                 <F label="تاريخ البدء"><Input type="datetime-local" value={editing.starts_at} onChange={(e) => setEditing({ ...editing, starts_at: e.target.value })} /></F>
                 <F label="تاريخ الانتهاء"><Input type="datetime-local" value={editing.ends_at} onChange={(e) => setEditing({ ...editing, ends_at: e.target.value })} /></F>
               </div>
             </div>
-          </ScrollArea>
+            </ScrollArea>
+          </div>
           )}
           {editing && (
             <div className="p-3 border-t shrink-0 bg-background">

@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { PWAInstallButton } from "@/components/PWAInstallButton";
-import logoAsset from "@/assets/logo-v2";
+import { footerSealUrl } from "@/assets/footer-seal";
 import { AdHero, AdRotator } from "@/components/ads/AdSlots";
 import { useAccess } from "@/lib/useAccess";
 import { FooterAttribution } from "@/components/FooterAttribution";
@@ -76,7 +76,7 @@ function Index() {
                 <div className="relative rounded-[2rem] border border-accent/30 bg-black/25 p-7 backdrop-blur">
                   <div className="absolute inset-x-8 -top-px h-px gold-rule" />
                   <img
-                    src={logoAsset.url}
+                    src={footerSealUrl}
                     alt={t("brand.logoAlt")}
                     className="h-56 w-56 object-contain drop-shadow-2xl"
                   />
