@@ -194,7 +194,7 @@ function AdminAds() {
       </main>
 
       <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
-        <DialogContent className="max-w-xl">
+        <DialogContent className="max-w-xl max-h-[85vh] overflow-y-auto">
           <DialogHeader><DialogTitle>{editing?.id ? "تعديل" : "إضافة"} إعلان</DialogTitle></DialogHeader>
           {editing && (
             <div className="space-y-3">
@@ -208,7 +208,26 @@ function AdminAds() {
                     <input type="file" hidden accept="image/*" onChange={uploadImage} disabled={uploading} />
                   </label>
                 </div>
-                {editing.image_url && <AdImg raw={editing.image_url} className="mt-2 w-full h-28 object-cover rounded border" />}
+                {editing.image_url && (
+                  <div className="relative mt-2">
+                    <AdImg raw={editing.image_url} className="w-full h-28 object-cover rounded border" />
+                    <Button
+                      type="button"
+                      size="icon"
+                      variant="destructive"
+                      className="absolute top-1.5 left-1.5 h-7 w-7"
+                      title="حذف الصورة"
+                      onClick={async () => {
+                        const path = storagePathOf(editing.image_url);
+                        if (path) await supabase.storage.from("ad-banners").remove([path]);
+                        setEditing({ ...editing, image_url: "" });
+                        toast.success("تم حذف الصورة");
+                      }}
+                    >
+                      <Trash2 className="h-3.5 w-3.5" />
+                    </Button>
+                  </div>
+                )}
               </F>
               <F label="رابط النقر"><Input value={editing.redirect_url} onChange={(e) => setEditing({ ...editing, redirect_url: e.target.value })} dir="ltr" className="text-xs" /></F>
               <div className="grid sm:grid-cols-2 gap-3">

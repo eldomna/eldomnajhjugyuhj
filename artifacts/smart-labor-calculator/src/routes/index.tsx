@@ -152,7 +152,6 @@ function Index() {
       <footer className="border-t bg-card">
         <div className="h-0.5 w-full gold-rule opacity-60" />
         <div className="container mx-auto px-4 py-8 text-center">
-          <img src={logoAsset.url} alt={t("home.footer.logoAlt")} className="mx-auto mb-4 h-14 w-14 object-contain" />
           <FooterAttribution />
           <div className="mt-6 border-t pt-4 text-xs text-muted-foreground">
             <p>{t("home.footer.rights", { year: new Date().getFullYear() })}</p>
