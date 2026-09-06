@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Megaphone, Plus, Pencil, Trash2, Eye, MousePointerClick, Upload, Power } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Legend } from "recharts";
@@ -194,10 +195,11 @@ function AdminAds() {
       </main>
 
       <Dialog open={!!editing} onOpenChange={(o) => !o && setEditing(null)}>
-        <DialogContent className="max-w-xl max-h-[85vh] overflow-y-auto">
-          <DialogHeader><DialogTitle>{editing?.id ? "تعديل" : "إضافة"} إعلان</DialogTitle></DialogHeader>
+        <DialogContent className="max-w-xl h-[85vh] p-0 gap-0 flex flex-col overflow-hidden">
+          <DialogHeader className="p-4 pb-2 shrink-0 border-b"><DialogTitle>{editing?.id ? "تعديل" : "إضافة"} إعلان</DialogTitle></DialogHeader>
           {editing && (
-            <div className="space-y-3">
+          <ScrollArea className="flex-1 min-h-0">
+            <div className="space-y-3 p-4">
               <F label="العنوان *"><Input value={editing.title} onChange={(e) => setEditing({ ...editing, title: e.target.value })} /></F>
               <F label="الوصف"><Textarea rows={2} value={editing.description} onChange={(e) => setEditing({ ...editing, description: e.target.value })} /></F>
               <F label="صورة الإعلان *">
@@ -254,6 +256,11 @@ function AdminAds() {
                 <F label="تاريخ البدء"><Input type="datetime-local" value={editing.starts_at} onChange={(e) => setEditing({ ...editing, starts_at: e.target.value })} /></F>
                 <F label="تاريخ الانتهاء"><Input type="datetime-local" value={editing.ends_at} onChange={(e) => setEditing({ ...editing, ends_at: e.target.value })} /></F>
               </div>
+            </div>
+          </ScrollArea>
+          )}
+          {editing && (
+            <div className="p-3 border-t shrink-0 bg-background">
               <Button onClick={() => save.mutate(editing)} disabled={save.isPending} className="w-full">{save.isPending ? "جارٍ الحفظ..." : "حفظ"}</Button>
             </div>
           )}
