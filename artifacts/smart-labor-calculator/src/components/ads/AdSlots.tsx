@@ -2,8 +2,7 @@ import { useEffect, useState, useRef, useMemo } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ChevronLeft, ChevronRight, Megaphone } from "lucide-react";
 import { useCachedAds, AD_DEFAULT_DISPLAY_SECONDS, type CachedAd } from "@/lib/ads-cache";
-import oskarBanner from "@/assets/oskar-banner.png.asset.json";
-import hashemBanner from "@/assets/hashem-banner.jpg.asset.json";
+import { footerSealUrl } from "@/assets/footer-seal";
 import { moazBannerV2Url } from "@/assets/moaz-banner-v2";
 
 type Ad = CachedAd;
@@ -22,19 +21,10 @@ const STATIC_HERO_SLIDES: CachedAd[] = [
     display_seconds: 10,
   },
   {
-    id: "static:hashem-banner",
-    title: "المحامي هاشم المداني — للاستشارات القانونية",
-    description: "للتواصل والحجز: 776634546",
-    image_url: hashemBanner.url,
-    redirect_url: "tel:776634546",
-    position: "hero",
-    display_seconds: 10,
-  },
-  {
     id: "static:oskar-banner",
     title: "شركة أوسكار للبرمجيات والحلول الذكية",
     description: "تم تصميم وتطوير الموقع بواسطة شركة أوسكار — +967 730 762 713",
-    image_url: oskarBanner.url,
+    image_url: footerSealUrl,
     redirect_url: null,
     position: "hero",
     display_seconds: 10,

@@ -1,18 +1,11 @@
 import { Link } from "@tanstack/react-router";
 import { LifeBuoy } from "lucide-react";
-import logoAsset from "@/assets/logo-v2";
 import { useI18n } from "@/lib/i18n";
 
 export function FooterAttribution() {
   const { t } = useI18n();
   return (
     <div className="flex flex-col items-center gap-2 text-center">
-      <img
-        src={logoAsset.url}
-        alt="الشعار الرسمي"
-        className="h-16 w-16 object-contain mb-1"
-        loading="lazy"
-      />
       {/* أرقام التواصل تُعرض فقط في صفحة الدعم الفني. */}
       <Link
         to="/support"
