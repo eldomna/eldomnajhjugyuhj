@@ -1,5 +1,5 @@
 #!/bin/bash
-# Restarts the app under pm2 using start.sh in this same folder.
+# Builds and (re)starts the app under pm2 using start.sh in this same folder.
 # Portable: works from wherever this repo/folder is checked out, on any server.
 set -e
 APP_DIR="$(cd "$(dirname "$0")" && pwd)"
@@ -7,6 +7,13 @@ APP_NAME="smart-labor-calc"
 PORT="${PORT:-3008}"
 
 cd "$APP_DIR"
+
+echo ">>> Installing deps..."
+pnpm install --frozen-lockfile
+
+echo ">>> Building..."
+pnpm build
+
 chmod +x ./start.sh
 
 pm2 delete "$APP_NAME" 2>/dev/null || true
