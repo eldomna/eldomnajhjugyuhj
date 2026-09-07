@@ -10,6 +10,7 @@ import { formatCurrency } from "@/lib/calculator";
 import { claimFirstAdmin } from "@/lib/admin-bootstrap.functions";
 import { useIsAdmin } from "@/lib/useIsAdmin";
 import { useSubscriptionStatus } from "@/lib/useSubscriptionStatus";
+import { useMyCalculator } from "@/lib/countries";
 import { SubscriptionStatusBadge } from "@/components/SubscriptionStatusBadge";
 import { SubscriptionRefreshButton } from "@/components/SubscriptionRefreshButton";
 
@@ -26,6 +27,9 @@ function Dashboard() {
   const qc = useQueryClient();
   const claim = useServerFn(claimFirstAdmin);
   const { sub, loading: subLoading } = useSubscriptionStatus();
+  const { data: myCalc, isLoading: myCalcLoading } = useMyCalculator();
+  // مسار حاسبة اليوزر الفعلية حسب دولته المحفوظة، أو شاشة اختيار الدولة لو لسه ما اختارش.
+  const myCalcPath = (myCalc?.path ?? "/select-country") as never;
 
 
   const { data: anyAdmin } = useQuery({
@@ -77,8 +81,13 @@ function Dashboard() {
   });
 
   const quickActions = [
-    { to: "/calculator" as const, icon: Calculator, title: "حاسبة جديدة", desc: "ابدأ احتساب الحقوق العمالية" },
-    { to: "/select-country" as const, icon: Globe2, title: "اختيار الدولة", desc: "السعودية 🇸🇦 أو اليمن 🇾🇪" },
+    {
+      to: myCalcPath,
+      icon: Calculator,
+      title: myCalc ? `حاسبتي (${myCalc.flag} ${myCalc.label})` : "اختيار الدولة",
+      desc: myCalc ? "ابدأ احتساب الحقوق العمالية" : "اختر دولتك أولاً لتفعيل حاسبتك",
+    },
+    { to: "/select-country" as const, icon: Globe2, title: "تغيير الدولة", desc: "السعودية 🇸🇦 أو اليمن 🇾🇪" },
     { to: "/calculations" as const, icon: FileText, title: "حساباتي المحفوظة", desc: "استعرض وحمّل تقاريرك" },
     { to: "/my-subscription" as const, icon: CreditCard, title: "اشتراكي", desc: "حالة الاشتراك والتجديد" },
     { to: "/subscription-history" as const, icon: History, title: "سجل الاشتراكات", desc: "الخطط المدفوعة والتواريخ" },
@@ -108,8 +117,8 @@ function Dashboard() {
                 </div>
               )}
             </div>
-            <Button asChild className="shrink-0 gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link to="/calculator"><Calculator className="h-4 w-4" /><span className="hidden sm:inline">حساب جديد</span></Link>
+            <Button asChild disabled={myCalcLoading} className="shrink-0 gap-2 bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link to={myCalcPath}><Calculator className="h-4 w-4" /><span className="hidden sm:inline">حساب جديد</span></Link>
             </Button>
           </div>
         </section>
@@ -189,7 +198,7 @@ function Dashboard() {
             </div>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {quickActions.map((a) => (
-                <Link key={a.to} to={a.to} className="group">
+                <Link key={a.title} to={a.to} className="group">
                   <Card className="h-full border-border/70 p-5 card-elev hover-lift group-hover:border-accent/50">
                     <div className="mb-3 grid h-10 w-10 place-items-center rounded-xl bg-primary-soft text-primary ring-1 ring-accent/20">
                       <a.icon className="h-5 w-5" />
@@ -263,7 +272,7 @@ function Dashboard() {
               <div className="py-10 text-center">
                 <FileText className="mx-auto mb-3 h-8 w-8 text-muted-foreground/50" />
                 <p className="text-sm text-muted-foreground">لا توجد حسابات محفوظة بعد.</p>
-                <Button asChild size="sm" className="mt-4"><Link to="/calculator">ابدأ أول حساب</Link></Button>
+                <Button asChild size="sm" className="mt-4"><Link to={myCalcPath}>ابدأ أول حساب</Link></Button>
               </div>
             ) : (
 
@@ -296,4 +305,3 @@ function Dashboard() {
     </div>
   );
 }
-

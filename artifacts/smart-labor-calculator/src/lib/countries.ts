@@ -70,3 +70,39 @@ export function useSelectedCountry() {
 
   return { code, ready, select };
 }
+
+export type MyCalculator = {
+  path: string;
+  code: string;
+  label: string;
+  flag: string;
+};
+
+/**
+ * حاسبة اليوزر الفعلية حسب دولته المحفوظة في قاعدة البيانات (profiles.country).
+ * ترجع null لو اليوزر لسه ما اختارش دولة، أو الدولة معطّلة حالياً.
+ */
+export function useMyCalculator() {
+  return useQuery({
+    queryKey: ["my-calculator"],
+    queryFn: async (): Promise<MyCalculator | null> => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return null;
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("country")
+        .eq("id", user.id)
+        .maybeSingle();
+      if (!profile?.country) return null;
+      const { data: country } = await supabase
+        .from("countries")
+        .select("calculator_path,name_ar,flag")
+        .eq("code", profile.country)
+        .eq("is_active", true)
+        .maybeSingle();
+      if (!country?.calculator_path) return null;
+      return { path: country.calculator_path, code: profile.country, label: country.name_ar, flag: country.flag };
+    },
+    staleTime: 5 * 60_000,
+  });
+}
