@@ -12,7 +12,10 @@ echo ">>> Installing deps..."
 pnpm install --frozen-lockfile
 
 echo ">>> Building..."
-pnpm build
+# The Nitro/rollup server bundle for this app can exceed Node's default
+# heap size on this VPS (other pm2 apps are running concurrently and eat
+# RAM too). Raise the heap ceiling just for the build step.
+NODE_OPTIONS="--max-old-space-size=5120" pnpm build
 
 chmod +x ./start.sh
 
