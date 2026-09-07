@@ -2,6 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { supabase } from "@/integrations/supabase/client";
+import { resolvePostLoginDestination } from "@/lib/auth-redirect";
 
 export const Route = createFileRoute("/auth/callback")({
   head: () => ({
@@ -31,6 +32,15 @@ function AuthCallback() {
   useEffect(() => {
     let cancelled = false;
 
+    // بعد أي تسجيل دخول OAuth: لو اليوزر عنده دولة محفوظة مسبقاً (profiles.country)
+    // يودّيه لحاسبته مباشرة، وإلا يعرض عليه شاشة اختيار الدولة — نفس منطق الدخول العادي.
+    const goAfterLogin = async () => {
+      if (cancelled) return;
+      const destination = await resolvePostLoginDestination();
+      if (cancelled) return;
+      navigate({ to: destination as never, replace: true });
+    };
+
     const finish = async () => {
       const { data, error: sessionError } = await supabase.auth.getSession();
       if (cancelled) return;
@@ -39,13 +49,13 @@ function AuthCallback() {
         return;
       }
       if (data.session) {
-        navigate({ to: "/select-country", replace: true });
+        await goAfterLogin();
         return;
       }
       // The SDK may still be exchanging the code in the URL.
       const { data: sub } = supabase.auth.onAuthStateChange((event) => {
         if (event === "SIGNED_IN") {
-          setTimeout(() => navigate({ to: "/select-country", replace: true }), 0);
+          setTimeout(() => void goAfterLogin(), 0);
         }
       });
       setTimeout(() => {

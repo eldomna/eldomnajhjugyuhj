@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ShieldCheck, Loader2 } from "lucide-react";
 import { footerSealUrl } from "@/assets/footer-seal";
+import { resolvePostLoginDestination } from "@/lib/auth-redirect";
 
 import { toast } from "sonner";
 
@@ -95,9 +96,16 @@ function AuthPage() {
     toast.error(msg);
   };
 
+  // يحسم وجهة الوجهة بعد تسجيل الدخول: لو اليوزر عنده دولة محفوظة مسبقاً (profiles.country)
+  // يودّيه لحاسبته مباشرة، وإلا يعرض عليه شاشة اختيار الدولة.
+  const goAfterLogin = async () => {
+    const destination = await resolvePostLoginDestination();
+    navigate({ to: destination as never, replace: true });
+  };
+
   useEffect(() => {
     supabase.auth.getUser().then(({ data }) => {
-      if (data.user) navigate({ to: "/select-country", replace: true });
+      if (data.user) void goAfterLogin();
     });
   }, [navigate]);
 
@@ -109,7 +117,7 @@ function AuthPage() {
     setLoading(false);
     if (error) return fail(translateAuthError(error.message, (error as { code?: string }).code));
     toast.success("أهلاً بعودتك");
-    navigate({ to: "/select-country", replace: true });
+    await goAfterLogin();
   };
 
   const onSignUp = async (e: React.FormEvent) => {
@@ -151,7 +159,7 @@ function AuthPage() {
       await attachReferral();
       setLoading(false);
       toast.success("تم إنشاء الحساب وتسجيل الدخول");
-      navigate({ to: "/select-country", replace: true });
+      await goAfterLogin();
       return;
     }
     // No session — try immediate sign-in (works when email confirmation is disabled)
@@ -160,7 +168,7 @@ function AuthPage() {
     setLoading(false);
     if (!signInErr) {
       toast.success("تم إنشاء الحساب وتسجيل الدخول");
-      navigate({ to: "/select-country", replace: true });
+      await goAfterLogin();
       return;
     }
 
@@ -380,4 +388,3 @@ function AuthPage() {
     </div>
   );
 }
-
