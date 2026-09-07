@@ -7,8 +7,10 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { CreditCard, Check, X, FileImage } from "lucide-react";
+import { CreditCard, Check, X, FileImage, Plus } from "lucide-react";
 import { ReceiptPreview } from "@/components/ReceiptPreview";
 
 
@@ -199,11 +201,40 @@ type PlanRow = {
 
 const COUNTRY_LABEL: Record<string, string> = { SA: "🇸🇦 المملكة العربية السعودية", YE: "🇾🇪 الجمهورية اليمنية" };
 
+type NewPlanForm = {
+  code: string;
+  name: string;
+  country: string;
+  period: string;
+  price: string;
+  currency: string;
+  duration_days: string;
+  description: string;
+  sort_order: string;
+  is_active: boolean;
+};
+
+const EMPTY_NEW_PLAN: NewPlanForm = {
+  code: "",
+  name: "",
+  country: "YE",
+  period: "monthly",
+  price: "",
+  currency: "YER",
+  duration_days: "30",
+  description: "",
+  sort_order: "0",
+  is_active: true,
+};
+
 /** إدارة الأسعار حسب الدولة — المصدر المركزي الوحيد لأسعار الاشتراكات. */
 function PlansManager() {
   const qc = useQueryClient();
   const [draft, setDraft] = useState<Record<string, { price: string; currency: string }>>({});
   const [busy, setBusy] = useState<string | null>(null);
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newPlan, setNewPlan] = useState<NewPlanForm>(EMPTY_NEW_PLAN);
+  const [addingPlan, setAddingPlan] = useState(false);
 
   const { data: plans, isLoading } = useQuery({
     queryKey: ["admin", "subscription-plans"],
@@ -253,6 +284,54 @@ function PlansManager() {
     qc.invalidateQueries({ queryKey: ["admin", "subscription-plans"] });
   };
 
+  const addPlan = async () => {
+    const code = newPlan.code.trim();
+    const name = newPlan.name.trim();
+    const price = Number(newPlan.price);
+    const durationDays = Number(newPlan.duration_days);
+    const sortOrder = Number(newPlan.sort_order || 0);
+
+    if (!code) {
+      toast.error("اكتب كود الباقة");
+      return;
+    }
+    if (!name) {
+      toast.error("اكتب اسم الباقة");
+      return;
+    }
+    if (!Number.isFinite(price) || price < 0) {
+      toast.error("سعر غير صالح");
+      return;
+    }
+    if (!Number.isFinite(durationDays) || durationDays <= 0) {
+      toast.error("مدة الاشتراك (بالأيام) غير صالحة");
+      return;
+    }
+
+    setAddingPlan(true);
+    const { error } = await supabase.from("subscription_plans").insert({
+      code,
+      name,
+      country: newPlan.country,
+      period: newPlan.period,
+      price,
+      currency: newPlan.currency.toUpperCase(),
+      duration_days: durationDays,
+      description: newPlan.description.trim() || null,
+      sort_order: Number.isFinite(sortOrder) ? sortOrder : 0,
+      is_active: newPlan.is_active,
+    });
+    setAddingPlan(false);
+    if (error) {
+      toast.error(error.code === "23505" ? "كود الباقة مستخدم بالفعل، اختر كودًا آخر" : error.message);
+      return;
+    }
+    toast.success("تمت إضافة الباقة بنجاح");
+    setNewPlan(EMPTY_NEW_PLAN);
+    setShowAddForm(false);
+    qc.invalidateQueries({ queryKey: ["admin", "subscription-plans"] });
+  };
+
   const groups = (plans ?? []).reduce<Record<string, PlanRow[]>>((acc, p) => {
     (acc[p.country] ??= []).push(p);
     return acc;
@@ -260,10 +339,128 @@ function PlansManager() {
 
   return (
     <Card className="p-5 mb-8">
-      <h2 className="font-bold mb-1">أسعار الاشتراكات حسب الدولة</h2>
+      <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+        <h2 className="font-bold">أسعار الاشتراكات حسب الدولة</h2>
+        <Button
+          size="sm"
+          variant={showAddForm ? "outline" : "default"}
+          className="gap-1"
+          onClick={() => setShowAddForm((v) => !v)}
+        >
+          <Plus className="h-3.5 w-3.5" /> {showAddForm ? "إلغاء" : "إضافة باقة جديدة"}
+        </Button>
+      </div>
       <p className="text-xs text-muted-foreground mb-4">
         كل مستخدم يرى باقات دولته المحفوظة في حسابه فقط، والسعر يُتحقق منه في الخادم عند إنشاء الطلب.
       </p>
+
+      {showAddForm && (
+        <div className="mb-6 rounded-lg border bg-muted/30 p-4 space-y-3">
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="space-y-1.5">
+              <Label>كود الباقة (فريد)</Label>
+              <Input
+                dir="ltr"
+                placeholder="monthly_sa_2"
+                value={newPlan.code}
+                onChange={(e) => setNewPlan((p) => ({ ...p, code: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>اسم الباقة</Label>
+              <Input
+                value={newPlan.name}
+                onChange={(e) => setNewPlan((p) => ({ ...p, name: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>الدولة</Label>
+              <select
+                className="h-9 w-full rounded-md border border-input bg-background px-2 text-sm"
+                value={newPlan.country}
+                onChange={(e) => setNewPlan((p) => ({ ...p, country: e.target.value }))}
+              >
+                <option value="YE">🇾🇪 اليمن</option>
+                <option value="SA">🇸🇦 السعودية</option>
+              </select>
+            </div>
+            <div className="space-y-1.5">
+              <Label>الدورة</Label>
+              <select
+                className="h-9 w-full rounded-md border border-input bg-background px-2 text-sm"
+                value={newPlan.period}
+                onChange={(e) => setNewPlan((p) => ({ ...p, period: e.target.value }))}
+              >
+                <option value="monthly">شهري</option>
+                <option value="yearly">سنوي</option>
+                <option value="one_time">لمرة واحدة</option>
+              </select>
+            </div>
+            <div className="space-y-1.5">
+              <Label>السعر</Label>
+              <Input
+                dir="ltr"
+                inputMode="decimal"
+                value={newPlan.price}
+                onChange={(e) => setNewPlan((p) => ({ ...p, price: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>العملة</Label>
+              <select
+                className="h-9 w-full rounded-md border border-input bg-background px-2 text-sm"
+                dir="ltr"
+                value={newPlan.currency}
+                onChange={(e) => setNewPlan((p) => ({ ...p, currency: e.target.value }))}
+              >
+                <option value="YER">YER</option>
+                <option value="SAR">SAR</option>
+                <option value="USD">USD</option>
+              </select>
+            </div>
+            <div className="space-y-1.5">
+              <Label>مدة الاشتراك (أيام)</Label>
+              <Input
+                dir="ltr"
+                inputMode="numeric"
+                value={newPlan.duration_days}
+                onChange={(e) => setNewPlan((p) => ({ ...p, duration_days: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-1.5">
+              <Label>ترتيب العرض</Label>
+              <Input
+                dir="ltr"
+                inputMode="numeric"
+                value={newPlan.sort_order}
+                onChange={(e) => setNewPlan((p) => ({ ...p, sort_order: e.target.value }))}
+              />
+            </div>
+            <div className="space-y-1.5 sm:col-span-2 lg:col-span-3">
+              <Label>الوصف (اختياري)</Label>
+              <Textarea
+                rows={2}
+                value={newPlan.description}
+                onChange={(e) => setNewPlan((p) => ({ ...p, description: e.target.value }))}
+              />
+            </div>
+          </div>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <label className="flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={newPlan.is_active}
+                onChange={(e) => setNewPlan((p) => ({ ...p, is_active: e.target.checked }))}
+              />
+              تفعيل الباقة فور الإضافة
+            </label>
+            <Button size="sm" className="gap-1" disabled={addingPlan} onClick={addPlan}>
+              <Plus className="h-3.5 w-3.5" /> حفظ الباقة
+            </Button>
+          </div>
+        </div>
+      )}
+
       {isLoading ? (
         <p className="text-sm text-muted-foreground">جارٍ التحميل...</p>
       ) : (
