@@ -161,9 +161,6 @@ function AdminAds() {
     <div className="min-h-screen flex flex-col">
       <AppHeader />
       <main className="flex-1 container mx-auto px-4 py-8">
-        <Link to="/admin" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors mb-4">
-          <ArrowRight className="h-4 w-4 rtl:rotate-180" /> العودة إلى لوحة التحكم
-        </Link>
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2"><Megaphone className="h-6 w-6 text-primary" /><h1 className="text-2xl font-bold">إدارة الإعلانات</h1></div>
           <Button onClick={() => setEditing(empty)} className="gap-1"><Plus className="h-4 w-4" /> إعلان جديد</Button>

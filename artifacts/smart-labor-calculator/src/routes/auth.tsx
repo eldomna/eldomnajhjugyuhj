@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ShieldCheck, Loader2 } from "lucide-react";
-import logoAsset from "@/assets/logo-v2";
+import { footerSealUrl } from "@/assets/footer-seal";
 
 import { toast } from "sonner";
 
@@ -205,7 +205,7 @@ function AuthPage() {
         />
         <Link to="/" className="relative flex items-center gap-3 font-display font-extrabold">
           <span className="grid h-12 w-12 place-items-center rounded-xl bg-black/25 ring-1 ring-accent/40">
-            <img src={logoAsset.url} alt="شعار المنصة" className="h-10 w-10 object-contain" />
+            <img src={footerSealUrl} alt="شعار المنصة" className="h-10 w-10 object-contain" />
           </span>
           حاسبة العمال الذكية
         </Link>
@@ -233,7 +233,7 @@ function AuthPage() {
       <div className="flex flex-col justify-center p-6 sm:p-10">
         <div className="lg:hidden mb-6 flex justify-center">
           <Link to="/" className="inline-flex items-center gap-2 font-display font-extrabold">
-            <img src={logoAsset.url} alt="شعار المنصة" className="h-11 w-11 object-contain" />
+            <img src={footerSealUrl} alt="شعار المنصة" className="h-11 w-11 object-contain" />
             حاسبة العمال الذكية
           </Link>
         </div>

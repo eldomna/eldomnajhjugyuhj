@@ -1,6 +1,6 @@
-import { Link, useRouter } from "@tanstack/react-router";
+import { Link, useRouter, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Moon, Sun, LogOut, Menu, X } from "lucide-react";
+import { Moon, Sun, LogOut, Menu, X, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { useQueryClient } from "@tanstack/react-query";
@@ -16,6 +16,7 @@ export function AppHeader() {
   const [open, setOpen] = useState(false);
   const [user, setUser] = useState<null | { email: string | null }>(null);
   const router = useRouter();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const qc = useQueryClient();
   const { isAdmin } = useIsAdmin();
   const { dark, toggle: toggleTheme } = useTheme();
@@ -121,6 +122,20 @@ export function AppHeader() {
           </Button>
         </div>
       </div>
+
+      {isAdmin && pathname.startsWith("/admin/") && (
+        <div className="border-t bg-muted/40">
+          <div className="container mx-auto px-4 py-1.5">
+            <Link
+              to="/admin"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              <ArrowRight className="h-3.5 w-3.5 rtl:rotate-180" /> العودة إلى لوحة التحكم
+            </Link>
+          </div>
+        </div>
+      )}
+
       {open && (
         <div className="md:hidden border-t bg-background">
           <nav className="container mx-auto flex flex-col gap-3 px-4 py-4 text-sm">{navLinks}
