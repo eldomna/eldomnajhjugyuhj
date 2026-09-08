@@ -17,8 +17,9 @@ export const Route = createFileRoute("/_authenticated/_admin/admin/payments")({
   component: AdminPayments,
 });
 
-type PMForm = { id?: string; name: string; logo_url: string; account_number: string; account_holder: string; instructions: string; is_active: boolean; sort_order: number };
-const empty: PMForm = { name: "", logo_url: "", account_number: "", account_holder: "", instructions: "", is_active: true, sort_order: 0 };
+type PMForm = { id?: string; name: string; logo_url: string; account_number: string; account_holder: string; instructions: string; country: string; is_active: boolean; sort_order: number };
+const empty: PMForm = { name: "", logo_url: "", account_number: "", account_holder: "", instructions: "", country: "", is_active: true, sort_order: 0 };
+const COUNTRY_LABEL: Record<string, string> = { "": "الكل (عام)", YE: "🇾🇪 اليمن فقط", SA: "🇸🇦 السعودية فقط" };
 
 function AdminPayments() {
   const qc = useQueryClient();

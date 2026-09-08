@@ -67,13 +67,17 @@ function SubscribePage() {
 
 
 
+  // وسائل الدفع مقصورة على دولة الحساب: صف بلا دولة (country = NULL) يظهر للجميع،
+  // وصف مرتبط بدولة معيّنة (مثال: جيب/كريمي لليمن) يظهر فقط لأصحاب هذه الدولة.
   const { data: methods } = useQuery({
-    queryKey: ["payment-methods-public"],
+    queryKey: ["payment-methods-public", country],
+    enabled: !!country,
     queryFn: async () => {
       const { data, error } = await supabase
         .from("payment_methods")
-        .select("id, name, logo_url, account_number, account_holder, instructions")
+        .select("id, name, logo_url, account_number, account_holder, instructions, country")
         .eq("is_active", true)
+        .or(`country.is.null,country.eq.${country}`)
         .order("sort_order");
       if (error) return [];
       return data;

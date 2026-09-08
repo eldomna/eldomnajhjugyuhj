@@ -1,6 +1,6 @@
 // بيانات التواصل الرسمية — المصدر الوحيد، وتُعرض فقط في صفحة الدعم الفني.
 // الدعم الفني عبر البريد الإلكتروني فقط (لا أرقام هواتف معروضة).
-export const SUPPORT_EMAIL = "support@laborcalculator.app";
+export const SUPPORT_EMAIL = "support@labor-calculator.online";
 
 export interface SupportChannel {
   phone: string;
