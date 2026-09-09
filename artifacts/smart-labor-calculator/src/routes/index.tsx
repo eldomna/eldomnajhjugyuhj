@@ -66,8 +66,7 @@ function Index() {
                     <a href="#calculator"><Calculator className="h-4 w-4" /> {t("home.hero.cta")}</a>
                   </Button>
                   <PWAInstallButton
-                    variant="outline"
-                    className="gap-2 border-white/35 bg-transparent text-primary-foreground hover:bg-white/10 hover:text-primary-foreground"
+                    className="gap-2 bg-accent text-accent-foreground hover:bg-accent/90"
                   />
                 </div>
                 <p className="mt-5 text-xs opacity-75">{t("home.hero.pricingNote")}</p>
