@@ -34,6 +34,12 @@ minimumReleaseAgeExclude:
   - '@replit/*'
   - stripe-replit-sync
 
+# Allow postinstall/build scripts for these trusted, well-known packages
+# (pnpm blocks all lifecycle scripts by default as a supply-chain defense).
+onlyBuiltDependencies:
+  - core-js
+  - esbuild
+
 packages:
   - artifacts/*
   - lib/*
