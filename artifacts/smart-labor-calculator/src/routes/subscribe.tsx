@@ -363,7 +363,12 @@ function SubscribePage() {
                     }`}
                     onClick={() => setMethodId(m.id)}
                   >
-                    <div className="font-semibold">{m.name}</div>
+                    <div className="flex items-center gap-2 font-semibold">
+                      {m.logo_url && (
+                        <img src={m.logo_url} alt={m.name} className="h-8 w-8 object-contain rounded shrink-0" />
+                      )}
+                      <span>{m.name}</span>
+                    </div>
                     {m.account_number && (
                       <div className="mt-1 text-sm text-muted-foreground" dir="ltr">
                         {m.account_number}
